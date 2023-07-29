@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace HttpPost.Messages
 {
-    public class RegistrationMessage : GameSenseMessage
+    public class GameRegistrationMessage : GameSenseMessage
     {
         [JsonPropertyName("game_display_name")]
         public string GameDisplayName { get; set; }

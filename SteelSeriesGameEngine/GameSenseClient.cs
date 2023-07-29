@@ -14,15 +14,24 @@ namespace SteelSeriesGameEngine
 
         private AddressRetriever _addressRetriever;
 
-        private RegistrationService _registrationService;
+        private GameRegistrationService _gameRegistrationService;
+        private GameEventRegistrationService _gameEventRegistrationService;
 
         public GameSenseClient()
         {
             _addressRetriever = new AddressRetriever();
             _targetAddress = _addressRetriever.GetTargetAddress();
-            _registrationService = new RegistrationService(_targetAddress);
+            _gameRegistrationService = new GameRegistrationService(_targetAddress);
+            _gameEventRegistrationService = new GameEventRegistrationService(_targetAddress);
 
-            _registrationService.Register();
+            SetUpGameEngineAsync();
+        }
+
+        private async void SetUpGameEngineAsync()
+        {
+            await _gameRegistrationService.RegisterAsync();
+            _gameEventRegistrationService.RegisterYellowFlagEvent();
+            _gameEventRegistrationService.RegisterBlueFlagEvent();
         }
     }
 }

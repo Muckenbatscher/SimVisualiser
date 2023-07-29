@@ -9,14 +9,14 @@ using System.Threading.Tasks;
 
 namespace HttpPost.EndPoints
 {
-    public class RegistrationEndpoint : BaseEndpoint, IEndpoint<RegistrationMessage>, IDisposable
+    internal class HeartBeatEndpoint : BaseEndpoint, IEndpoint<HeartBeatMessage>, IDisposable
     {
-        private static string _endPoint = "game_metadata";
-        public RegistrationEndpoint(string baseAddress) : base(baseAddress, _endPoint)
+        private static string _endPoint = "game_heartbeat";
+        public HeartBeatEndpoint(string baseAddress) : base(baseAddress, _endPoint)
         {
         }
 
-        public async Task PostMessageAsync(RegistrationMessage message)
+        public async Task PostMessageAsync(HeartBeatMessage message)
         {
             string messageText = JsonSerializer.Serialize(message);
             await PostMessageAsync(messageText);

@@ -21,12 +21,13 @@ namespace HttpPost.EndPoints
             _client = new HttpClient();
         }
 
-        protected async Task PostMessageAsync(string message)
+        protected async Task<bool> PostMessageAsync(string message)
         {
             string endPointAddress = $"http://{BaseAddress}/{EndPoint}";
             var uri = new Uri(endPointAddress);
             var content = new StringContent(message, Encoding.ASCII, "application/json");
-            var response = await _client.PostAsync(uri, content);
+            var response =  await _client.PostAsync(uri, content);
+            return response.IsSuccessStatusCode;
         }
 
         public void Dispose()
