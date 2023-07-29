@@ -9,35 +9,45 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SteelSeriesGameEngine.Services.Initialization
+namespace SteelSeriesGameEngine.Services.GameEvents
 {
-    internal class GameEventRegistrationService : GameSenseServiceBase
+    internal class GameEventService : GameSenseServiceBase
     {
-        private GameEventRegistrationEndpoint _endPoint;
-
-        public GameEventRegistrationService(TargetAddress baseAddress) : base(baseAddress)
+        private GameEventEndpoint _endPoint;
+        public GameEventService(TargetAddress baseAddress) : base(baseAddress)
         {
-            _endPoint = new GameEventRegistrationEndpoint(baseAddress.GetURL());
+            _endPoint = new GameEventEndpoint(baseAddress.GetURL());
         }
 
-        private GameEventRegistrationMessage GetPrefilledMessage()
+        private GameEventMessage GetPrefilledMessage()
         {
-            return new GameEventRegistrationMessage()
+            return new GameEventMessage()
             {
-                Game = GameMetadata.GAME_NAME
+                Game = GameMetadata.GAME_NAME,
+                Data = GetSampleData()
+            };
+        }
+        private GameEventData GetSampleData()
+        {
+            return new GameEventData()
+            {
+                Value = 50
             };
         }
 
-        public async Task RegisterYellowFlagEventAsync()
+        public async Task SendYellowFlagEventAsync()
         {
             var message = GetPrefilledMessage();
             message.EventName = GameEventMetadata.YELLOW_FLAG_EVENT_NAME;
+
             await _endPoint.PostMessageAsync(message);
         }
-        public async Task RegisterBlueFlagEventAsync()
+
+        public async Task SendBlueFlagEventAsync()
         {
             var message = GetPrefilledMessage();
             message.EventName = GameEventMetadata.BLUE_FLAG_EVENT_NAME;
+
             await _endPoint.PostMessageAsync(message);
         }
     }
