@@ -1,4 +1,7 @@
-﻿using HttpPost.Messages.GameEvents;
+﻿using HttpPost.Messages.Finalization;
+using HttpPost.Messages.GameEvents;
+using HttpPost.Messages.Heartbeat;
+using HttpPost.Messages.Initialization;
 using System;
 using System.Collections.Generic;
 using System.Linq;

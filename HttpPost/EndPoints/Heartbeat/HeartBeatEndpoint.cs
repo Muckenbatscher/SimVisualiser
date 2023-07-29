@@ -1,11 +1,11 @@
 ﻿using HttpPost.Interfaces;
-using HttpPost.Messages;
+using HttpPost.Messages.Heartbeat;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace HttpPost.EndPoints
+namespace HttpPost.EndPoints.Heartbeat
 {
     internal class HeartBeatEndpoint : BaseEndpoint, IEndpoint<HeartBeatMessage>, IDisposable
     {

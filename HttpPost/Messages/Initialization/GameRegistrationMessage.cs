@@ -5,7 +5,7 @@ using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-namespace HttpPost.Messages
+namespace HttpPost.Messages.Initialization
 {
     public class GameRegistrationMessage : GameSenseMessage
     {

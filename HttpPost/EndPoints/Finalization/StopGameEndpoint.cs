@@ -1,12 +1,12 @@
 ﻿using HttpPost.Interfaces;
-using HttpPost.Messages;
+using HttpPost.Messages.Finalization;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HttpPost.EndPoints
+namespace HttpPost.EndPoints.Finalization
 {
     public class StopGameEndpoint : BaseEndpoint, IEndpoint<StopGameMessage>, IDisposable
     {

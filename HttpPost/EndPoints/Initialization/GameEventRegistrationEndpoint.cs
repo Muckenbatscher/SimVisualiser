@@ -1,11 +1,11 @@
 ﻿using HttpPost.Interfaces;
-using HttpPost.Messages.GameEvents;
+using HttpPost.Messages.Initialization;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace HttpPost.EndPoints
+namespace HttpPost.EndPoints.Initialization
 {
     public class GameEventRegistrationEndpoint : BaseEndpoint, IEndpoint<GameEventRegistrationMessage>, IDisposable
     {
@@ -16,7 +16,7 @@ namespace HttpPost.EndPoints
 
         public async Task PostMessageAsync(GameEventRegistrationMessage message)
         {
-            await base.SerializeAndPostMessageAsync(message);
+            await SerializeAndPostMessageAsync(message);
         }
     }
 }

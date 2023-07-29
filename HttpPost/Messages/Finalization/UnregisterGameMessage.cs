@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HttpPost.Messages
+namespace HttpPost.Messages.Finalization
 {
-    public class HeartBeatMessage : GameSenseMessage
+    public class UnregisterGameMessage : GameSenseMessage
     {
     }
 }

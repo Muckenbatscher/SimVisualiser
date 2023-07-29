@@ -1,6 +1,6 @@
-﻿using HttpPost.EndPoints;
-using HttpPost.Messages;
-using SteelSeriesGameEngine.Common;
+﻿using HttpPost.EndPoints.Initialization;
+using HttpPost.Messages.Initialization;
+using SteelSeriesGameEngine.Constants;
 using SteelSeriesGameEngine.Models;
 using System;
 using System.Collections.Generic;

@@ -1,7 +1,5 @@
-﻿using HttpPost.EndPoints;
-using HttpPost.Messages;
-using HttpPost.Messages.GameEvents;
-using SteelSeriesGameEngine.Common;
+﻿using HttpPost.EndPoints.Finalization;
+using HttpPost.Messages.Finalization;
 using SteelSeriesGameEngine.Constants;
 using SteelSeriesGameEngine.Models;
 using System;

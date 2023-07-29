@@ -3,15 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32516.85
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SteelSeriesGameEngine", "SteelSeriesGameEngine\SteelSeriesGameEngine.csproj", "{393FC241-7CE7-4B2D-AB71-130AC0BB6910}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SteelSeriesGameEngine", "SteelSeriesGameEngine\SteelSeriesGameEngine.csproj", "{393FC241-7CE7-4B2D-AB71-130AC0BB6910}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimVisualiser", "SimVisualiser\SimVisualiser.csproj", "{2468D68D-6BB8-4A07-95B1-CB69FD9D773B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimVisualiser", "SimVisualiser\SimVisualiser.csproj", "{2468D68D-6BB8-4A07-95B1-CB69FD9D773B}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SimDataReaders", "SimDataReaders", "{7DB15FC5-E332-44E0-ADF7-3CC5C230002C}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SimDataReading", "SimDataReading", "{7DB15FC5-E332-44E0-ADF7-3CC5C230002C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ACCDataReader", "ACCDataReader\ACCDataReader.csproj", "{70870721-7419-48F9-A410-31FD18B99828}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ACCDataReader", "ACCDataReader\ACCDataReader.csproj", "{70870721-7419-48F9-A410-31FD18B99828}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HttpPost", "HttpPost\HttpPost.csproj", "{8A8F9BB3-F206-475C-8620-733D5E863FFF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HttpPost", "HttpPost\HttpPost.csproj", "{8A8F9BB3-F206-475C-8620-733D5E863FFF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

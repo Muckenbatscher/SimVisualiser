@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace HttpPost.EndPoints
+namespace HttpPost.EndPoints.GameEvent
 {
     public class GameEventEndpoint : BaseEndpoint, IEndpoint<GameEventMessage>, IDisposable
     {

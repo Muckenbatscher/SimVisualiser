@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SteelSeriesGameEngine.Constants
+namespace HttpPost.Messages.Finalization
 {
-    internal class GameEventMetadata
+    public class StopGameMessage : GameSenseMessage
     {
-        public const string FLAG_EVENT_NAME = "FLAG";
     }
 }

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SteelSeriesGameEngine.Common
+namespace SteelSeriesGameEngine.Constants
 {
     internal class GameMetadata
     {

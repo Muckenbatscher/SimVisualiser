@@ -28,46 +28,139 @@
         /// </summary>
         private void InitializeComponent()
         {
-            button1 = new Button();
-            button2 = new Button();
+            BT_YELLOW = new Button();
+            BT_BLUE = new Button();
+            TLP_FLAGS = new TableLayoutPanel();
+            BT_CLEAR = new Button();
+            BT_GREEN = new Button();
+            BT_WHITE = new Button();
+            BT_ORANGE = new Button();
+            TLP_FLAGS.SuspendLayout();
             SuspendLayout();
             // 
-            // button1
+            // BT_YELLOW
             // 
-            button1.BackColor = Color.Yellow;
-            button1.Location = new Point(50, 38);
-            button1.Name = "button1";
-            button1.Size = new Size(141, 117);
-            button1.TabIndex = 0;
-            button1.UseVisualStyleBackColor = false;
-            button1.Click += button1_Click;
+            BT_YELLOW.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            BT_YELLOW.BackColor = Color.Yellow;
+            BT_YELLOW.ForeColor = Color.Black;
+            BT_YELLOW.Location = new Point(158, 92);
+            BT_YELLOW.Name = "BT_YELLOW";
+            BT_YELLOW.Size = new Size(149, 84);
+            BT_YELLOW.TabIndex = 0;
+            BT_YELLOW.Text = "2";
+            BT_YELLOW.UseVisualStyleBackColor = false;
+            BT_YELLOW.Click += BT_YELLOW_Click;
             // 
-            // button2
+            // BT_BLUE
             // 
-            button2.BackColor = Color.Blue;
-            button2.Location = new Point(219, 38);
-            button2.Name = "button2";
-            button2.Size = new Size(141, 117);
-            button2.TabIndex = 1;
-            button2.UseVisualStyleBackColor = false;
-            button2.Click += button2_Click;
+            BT_BLUE.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            BT_BLUE.BackColor = Color.Blue;
+            BT_BLUE.ForeColor = Color.White;
+            BT_BLUE.Location = new Point(3, 92);
+            BT_BLUE.Name = "BT_BLUE";
+            BT_BLUE.Size = new Size(149, 84);
+            BT_BLUE.TabIndex = 1;
+            BT_BLUE.Text = "1";
+            BT_BLUE.UseVisualStyleBackColor = false;
+            BT_BLUE.Click += BT_BLUE_Click;
+            // 
+            // TLP_FLAGS
+            // 
+            TLP_FLAGS.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            TLP_FLAGS.ColumnCount = 5;
+            TLP_FLAGS.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            TLP_FLAGS.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            TLP_FLAGS.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            TLP_FLAGS.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            TLP_FLAGS.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            TLP_FLAGS.Controls.Add(BT_CLEAR, 0, 0);
+            TLP_FLAGS.Controls.Add(BT_BLUE, 0, 1);
+            TLP_FLAGS.Controls.Add(BT_YELLOW, 1, 1);
+            TLP_FLAGS.Controls.Add(BT_GREEN, 3, 1);
+            TLP_FLAGS.Controls.Add(BT_WHITE, 2, 1);
+            TLP_FLAGS.Controls.Add(BT_ORANGE, 4, 1);
+            TLP_FLAGS.Location = new Point(12, 12);
+            TLP_FLAGS.Name = "TLP_FLAGS";
+            TLP_FLAGS.RowCount = 2;
+            TLP_FLAGS.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            TLP_FLAGS.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            TLP_FLAGS.Size = new Size(776, 179);
+            TLP_FLAGS.TabIndex = 2;
+            // 
+            // BT_CLEAR
+            // 
+            BT_CLEAR.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            BT_CLEAR.BackColor = Color.Black;
+            TLP_FLAGS.SetColumnSpan(BT_CLEAR, 5);
+            BT_CLEAR.ForeColor = Color.White;
+            BT_CLEAR.Location = new Point(3, 3);
+            BT_CLEAR.Name = "BT_CLEAR";
+            BT_CLEAR.Size = new Size(770, 83);
+            BT_CLEAR.TabIndex = 5;
+            BT_CLEAR.Text = "0";
+            BT_CLEAR.UseVisualStyleBackColor = false;
+            BT_CLEAR.Click += BT_CLEAR_Click;
+            // 
+            // BT_GREEN
+            // 
+            BT_GREEN.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            BT_GREEN.BackColor = Color.Green;
+            BT_GREEN.ForeColor = Color.White;
+            BT_GREEN.Location = new Point(468, 92);
+            BT_GREEN.Name = "BT_GREEN";
+            BT_GREEN.Size = new Size(149, 84);
+            BT_GREEN.TabIndex = 2;
+            BT_GREEN.Text = "7";
+            BT_GREEN.UseVisualStyleBackColor = false;
+            BT_GREEN.Click += BT_GREEN_Click;
+            // 
+            // BT_WHITE
+            // 
+            BT_WHITE.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            BT_WHITE.BackColor = Color.White;
+            BT_WHITE.ForeColor = Color.Black;
+            BT_WHITE.Location = new Point(313, 92);
+            BT_WHITE.Name = "BT_WHITE";
+            BT_WHITE.Size = new Size(149, 84);
+            BT_WHITE.TabIndex = 3;
+            BT_WHITE.Text = "4";
+            BT_WHITE.UseVisualStyleBackColor = false;
+            BT_WHITE.Click += BT_WHITE_Click;
+            // 
+            // BT_ORANGE
+            // 
+            BT_ORANGE.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            BT_ORANGE.BackColor = Color.Orange;
+            BT_ORANGE.ForeColor = Color.Black;
+            BT_ORANGE.Location = new Point(623, 92);
+            BT_ORANGE.Name = "BT_ORANGE";
+            BT_ORANGE.Size = new Size(150, 84);
+            BT_ORANGE.TabIndex = 4;
+            BT_ORANGE.Text = "8";
+            BT_ORANGE.UseVisualStyleBackColor = false;
+            BT_ORANGE.Click += BT_ORANGE_Click;
             // 
             // MainWindow
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(button2);
-            Controls.Add(button1);
+            Controls.Add(TLP_FLAGS);
             Name = "MainWindow";
             Text = "Form1";
             FormClosed += MainWindow_FormClosed;
+            TLP_FLAGS.ResumeLayout(false);
             ResumeLayout(false);
         }
 
         #endregion
 
-        private Button button1;
-        private Button button2;
+        private Button BT_YELLOW;
+        private Button BT_BLUE;
+        private TableLayoutPanel TLP_FLAGS;
+        private Button BT_GREEN;
+        private Button BT_WHITE;
+        private Button BT_CLEAR;
+        private Button BT_ORANGE;
     }
 }

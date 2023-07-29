@@ -1,4 +1,5 @@
-﻿using SteelSeriesGameEngine.Models;
+﻿using SteelSeriesGameEngine.Enums;
+using SteelSeriesGameEngine.Models;
 using SteelSeriesGameEngine.Services.Finalization;
 using SteelSeriesGameEngine.Services.GameEvents;
 using SteelSeriesGameEngine.Services.Initialization;
@@ -38,22 +39,42 @@ namespace SteelSeriesGameEngine
         private async Task SetUpGameEngineAsync()
         {
             await _gameRegistrationService.RegisterAsync();
-            _gameEventRegistrationService.RegisterYellowFlagEventAsync();
-            await _gameEventRegistrationService.RegisterBlueFlagEventAsync();
+            await _gameEventRegistrationService.RegisterFlagEventAsync();
+
+            var r = new UnregisterGameEventService(_targetAddress);
+            await r.UnregisterGameEvent(Constants.GameMetadata.GAME_NAME, "YELLOW_FLAG");
+            await r.UnregisterGameEvent(Constants.GameMetadata.GAME_NAME, "BLUE_FLAG");
         }
 
         public async Task StopGame()
         {
-            _stopGameService.StopGame();
+            await _stopGameService.StopGame();
         }
 
-        public async Task SendYellowFlagEventAsync()
+        public async Task ClearFlagEventAsync()
         {
-            await _gameEventService.SendYellowFlagEventAsync();
+            await _gameEventService.SendFlagEventAsync(FlagType.NoFloag);
         }
         public async Task SendBlueFlagEventAsync()
         {
-            await _gameEventService.SendBlueFlagEventAsync();
+            await _gameEventService.SendFlagEventAsync(FlagType.BlueFlag);
         }
+        public async Task SendYellowFlagEventAsync()
+        {
+            await _gameEventService.SendFlagEventAsync(FlagType.YellowFlag);
+        }
+        public async Task SendWhiteFlagEventAsync()
+        {
+            await _gameEventService.SendFlagEventAsync(FlagType.WhiteFlag);
+        }
+        public async Task SendGreenFlagEventAsync()
+        {
+            await _gameEventService.SendFlagEventAsync(FlagType.GreenFlag);
+        }
+        public async Task SendOrangeFlagEventAsync()
+        {
+            await _gameEventService.SendFlagEventAsync(FlagType.OrangeFlag);
+        }
+
     }
 }

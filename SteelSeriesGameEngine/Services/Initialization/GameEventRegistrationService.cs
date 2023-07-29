@@ -1,6 +1,5 @@
-﻿using HttpPost.EndPoints;
-using HttpPost.Messages.GameEvents;
-using SteelSeriesGameEngine.Common;
+﻿using HttpPost.EndPoints.Initialization;
+using HttpPost.Messages.Initialization;
 using SteelSeriesGameEngine.Constants;
 using SteelSeriesGameEngine.Models;
 using System;
@@ -20,24 +19,20 @@ namespace SteelSeriesGameEngine.Services.Initialization
             _endPoint = new GameEventRegistrationEndpoint(baseAddress.GetURL());
         }
 
-        private GameEventRegistrationMessage GetPrefilledMessage()
+        private static GameEventRegistrationMessage GetPrefilledMessage()
         {
             return new GameEventRegistrationMessage()
             {
-                Game = GameMetadata.GAME_NAME
+                Game = GameMetadata.GAME_NAME,
+                MinValue = 0,
+                MaxValue = 8
             };
         }
 
-        public async Task RegisterYellowFlagEventAsync()
+        public async Task RegisterFlagEventAsync()
         {
             var message = GetPrefilledMessage();
-            message.EventName = GameEventMetadata.YELLOW_FLAG_EVENT_NAME;
-            await _endPoint.PostMessageAsync(message);
-        }
-        public async Task RegisterBlueFlagEventAsync()
-        {
-            var message = GetPrefilledMessage();
-            message.EventName = GameEventMetadata.BLUE_FLAG_EVENT_NAME;
+            message.EventName = GameEventMetadata.FLAG_EVENT_NAME;
             await _endPoint.PostMessageAsync(message);
         }
     }

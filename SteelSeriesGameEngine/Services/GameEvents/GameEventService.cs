@@ -1,7 +1,7 @@
-﻿using HttpPost.EndPoints;
+﻿using HttpPost.EndPoints.GameEvent;
 using HttpPost.Messages.GameEvents;
-using SteelSeriesGameEngine.Common;
 using SteelSeriesGameEngine.Constants;
+using SteelSeriesGameEngine.Enums;
 using SteelSeriesGameEngine.Models;
 using System;
 using System.Collections.Generic;
@@ -19,36 +19,29 @@ namespace SteelSeriesGameEngine.Services.GameEvents
             _endPoint = new GameEventEndpoint(baseAddress.GetURL());
         }
 
-        private GameEventMessage GetPrefilledMessage()
+        private GameEventMessage GetPrefilledMessage(int value)
         {
             return new GameEventMessage()
             {
                 Game = GameMetadata.GAME_NAME,
-                Data = GetSampleData()
+                Data = GetSampleData(value)
             };
         }
-        private GameEventData GetSampleData()
+        private GameEventData GetSampleData(int value)
         {
             return new GameEventData()
             {
-                Value = 50
+                Value = value
             };
         }
 
-        public async Task SendYellowFlagEventAsync()
+        public async Task SendFlagEventAsync(FlagType flagType)
         {
-            var message = GetPrefilledMessage();
-            message.EventName = GameEventMetadata.YELLOW_FLAG_EVENT_NAME;
+            var message = GetPrefilledMessage((int)flagType);
+            message.EventName = GameEventMetadata.FLAG_EVENT_NAME;
 
             await _endPoint.PostMessageAsync(message);
         }
 
-        public async Task SendBlueFlagEventAsync()
-        {
-            var message = GetPrefilledMessage();
-            message.EventName = GameEventMetadata.BLUE_FLAG_EVENT_NAME;
-
-            await _endPoint.PostMessageAsync(message);
-        }
     }
 }
