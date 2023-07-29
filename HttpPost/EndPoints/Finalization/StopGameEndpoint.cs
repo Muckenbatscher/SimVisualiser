@@ -15,9 +15,9 @@ namespace HttpPost.EndPoints.Finalization
         {
         }
 
-        public async Task PostMessageAsync(StopGameMessage message)
+        public async Task<bool> PostMessageAsync(StopGameMessage message)
         {
-            await SerializeAndPostMessageAsync(message);
+            return await SerializeAndPostMessageAsync(message);
         }
     }
 }

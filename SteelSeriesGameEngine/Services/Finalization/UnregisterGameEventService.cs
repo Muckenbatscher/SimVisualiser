@@ -26,7 +26,7 @@ namespace SteelSeriesGameEngine.Services.Finalization
                 Game = gameName,
                 EventName = eventName
             };
-            await _endPoint.PostMessageAsync(message);
+            var success = await _endPoint.PostMessageAsync(message);
         }
     }
 }

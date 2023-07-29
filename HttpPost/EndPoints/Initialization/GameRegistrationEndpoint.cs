@@ -14,9 +14,9 @@ namespace HttpPost.EndPoints.Initialization
         {
         }
 
-        public async Task PostMessageAsync(GameRegistrationMessage message)
+        public async Task<bool> PostMessageAsync(GameRegistrationMessage message)
         {
-            await SerializeAndPostMessageAsync(message);
+            return await SerializeAndPostMessageAsync(message);
         }
     }
 }

@@ -40,10 +40,6 @@ namespace SteelSeriesGameEngine
         {
             await _gameRegistrationService.RegisterAsync();
             await _gameEventRegistrationService.RegisterFlagEventAsync();
-
-            var r = new UnregisterGameEventService(_targetAddress);
-            await r.UnregisterGameEvent(Constants.GameMetadata.GAME_NAME, "YELLOW_FLAG");
-            await r.UnregisterGameEvent(Constants.GameMetadata.GAME_NAME, "BLUE_FLAG");
         }
 
         public async Task StopGame()

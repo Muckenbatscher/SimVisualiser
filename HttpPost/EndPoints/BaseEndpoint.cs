@@ -36,13 +36,14 @@ namespace HttpPost.EndPoints
             return response.IsSuccessStatusCode;
         }
 
-        private string SerializeMessage(GameSenseMessage message)
+        private static string SerializeMessage(GameSenseMessage message)
         {
             JsonSerializerOptions options = new()
             {
                 DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull
             };
-            return JsonSerializer.Serialize(message, options);
+            var serialized = JsonSerializer.Serialize(message, options);
+            return serialized;
         }
 
         public void Dispose()

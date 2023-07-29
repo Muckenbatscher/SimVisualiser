@@ -14,9 +14,9 @@ namespace HttpPost.EndPoints.Heartbeat
         {
         }
 
-        public async Task PostMessageAsync(HeartBeatMessage message)
+        public async Task<bool> PostMessageAsync(HeartBeatMessage message)
         {
-            await SerializeAndPostMessageAsync(message);
+            return await SerializeAndPostMessageAsync(message);
         }
     }
 }

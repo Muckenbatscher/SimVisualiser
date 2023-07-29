@@ -13,6 +13,8 @@ namespace HttpPost.Messages
 {
     [JsonDerivedType(typeof(GameRegistrationMessage))]
     [JsonDerivedType(typeof(GameEventRegistrationMessage))]
+    [JsonDerivedType(typeof(UnregisterGameMessage))]
+    [JsonDerivedType(typeof(UnregisterGameEventMessage))]
     [JsonDerivedType(typeof(StopGameMessage))]
     [JsonDerivedType(typeof(GameEventMessage))]
     [JsonDerivedType(typeof(HeartBeatMessage))]
