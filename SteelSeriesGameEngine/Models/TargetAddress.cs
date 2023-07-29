@@ -24,7 +24,7 @@ namespace SteelSeriesGameEngine.Models
                 throw new ArgumentException();
             
             Address = encodedAddress.Substring(0, dotIndex);
-            Port = int.Parse(encodedAddress.Substring(dotIndex));
+            Port = int.Parse(encodedAddress.Substring(dotIndex + 1));
         }
 
         internal string GetURL() => $"{Address}:{Port}";

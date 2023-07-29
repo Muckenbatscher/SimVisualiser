@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace HttpPost.Messages
 {
-    abstract class GameSenseMessage
+    public abstract class GameSenseMessage
     {
         [JsonPropertyName("game")]
         public string Game { get; set; }

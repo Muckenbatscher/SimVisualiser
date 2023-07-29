@@ -9,6 +9,6 @@ namespace HttpPost.Interfaces
 {
     internal interface IEndpoint<M> where M : GameSenseMessage
     {
-        void PostMessage(M message);
+        Task PostMessageAsync(M message);
     }
 }

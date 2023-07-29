@@ -8,16 +8,21 @@ using System.Threading.Tasks;
 
 namespace SteelSeriesGameEngine
 {
-    public class GameEngineClient
+    public class GameSenseClient
     {
         private TargetAddress _targetAddress;
 
         private AddressRetriever _addressRetriever;
 
-        public GameEngineClient()
+        private RegistrationService _registrationService;
+
+        public GameSenseClient()
         {
             _addressRetriever = new AddressRetriever();
             _targetAddress = _addressRetriever.GetTargetAddress();
+            _registrationService = new RegistrationService(_targetAddress);
+
+            _registrationService.Register();
         }
     }
 }

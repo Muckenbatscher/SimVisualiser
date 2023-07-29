@@ -9,17 +9,17 @@ using System.Threading.Tasks;
 
 namespace HttpPost.EndPoints
 {
-    internal class RegistrationEndpoint : BaseEndpoint, IEndpoint<RegistrationMessage>
+    public class RegistrationEndpoint : BaseEndpoint, IEndpoint<RegistrationMessage>, IDisposable
     {
         private static string _endPoint = "game_metadata";
         public RegistrationEndpoint(string baseAddress) : base(baseAddress, _endPoint)
         {
         }
 
-        public void PostMessage(RegistrationMessage message)
+        public async Task PostMessageAsync(RegistrationMessage message)
         {
             string messageText = JsonSerializer.Serialize(message);
-            PostMessage(messageText);
+            await PostMessageAsync(messageText);
         }
     }
 }

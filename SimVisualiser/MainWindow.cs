@@ -1,3 +1,5 @@
+using SteelSeriesGameEngine;
+
 namespace SimVisualiser
 {
     public partial class MainWindow : Form
@@ -5,6 +7,8 @@ namespace SimVisualiser
         public MainWindow()
         {
             InitializeComponent();
+
+            var a = new GameSenseClient();
         }
     }
 }

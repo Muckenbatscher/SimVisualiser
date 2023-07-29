@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace HttpPost.EndPoints
 {
-    internal abstract class BaseEndpoint : IDisposable
+    public abstract class BaseEndpoint : IDisposable
     {
         private string BaseAddress { get; set; }
         protected string EndPoint { get; set; }
@@ -20,11 +21,12 @@ namespace HttpPost.EndPoints
             _client = new HttpClient();
         }
 
-        protected void PostMessage(string message)
+        protected async Task PostMessageAsync(string message)
         {
-            string endPointAddress = $"{BaseAddress}/{EndPoint}";
-            var content = new StringContent(message);
-            _client.PostAsync(endPointAddress, content);
+            string endPointAddress = $"http://{BaseAddress}/{EndPoint}";
+            var uri = new Uri(endPointAddress);
+            var content = new StringContent(message, Encoding.ASCII, "application/json");
+            var response = await _client.PostAsync(uri, content);
         }
 
         public void Dispose()
