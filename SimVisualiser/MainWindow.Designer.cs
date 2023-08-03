@@ -46,7 +46,7 @@
             BT_YELLOW.Location = new Point(158, 92);
             BT_YELLOW.Name = "BT_YELLOW";
             BT_YELLOW.Size = new Size(149, 84);
-            BT_YELLOW.TabIndex = 0;
+            BT_YELLOW.TabIndex = 3;
             BT_YELLOW.Text = "2";
             BT_YELLOW.UseVisualStyleBackColor = false;
             BT_YELLOW.Click += BT_YELLOW_Click;
@@ -59,7 +59,7 @@
             BT_BLUE.Location = new Point(3, 92);
             BT_BLUE.Name = "BT_BLUE";
             BT_BLUE.Size = new Size(149, 84);
-            BT_BLUE.TabIndex = 1;
+            BT_BLUE.TabIndex = 2;
             BT_BLUE.Text = "1";
             BT_BLUE.UseVisualStyleBackColor = false;
             BT_BLUE.Click += BT_BLUE_Click;
@@ -96,7 +96,7 @@
             BT_CLEAR.Location = new Point(3, 3);
             BT_CLEAR.Name = "BT_CLEAR";
             BT_CLEAR.Size = new Size(770, 83);
-            BT_CLEAR.TabIndex = 5;
+            BT_CLEAR.TabIndex = 1;
             BT_CLEAR.Text = "0";
             BT_CLEAR.UseVisualStyleBackColor = false;
             BT_CLEAR.Click += BT_CLEAR_Click;
@@ -109,7 +109,7 @@
             BT_GREEN.Location = new Point(468, 92);
             BT_GREEN.Name = "BT_GREEN";
             BT_GREEN.Size = new Size(149, 84);
-            BT_GREEN.TabIndex = 2;
+            BT_GREEN.TabIndex = 5;
             BT_GREEN.Text = "7";
             BT_GREEN.UseVisualStyleBackColor = false;
             BT_GREEN.Click += BT_GREEN_Click;
@@ -122,7 +122,7 @@
             BT_WHITE.Location = new Point(313, 92);
             BT_WHITE.Name = "BT_WHITE";
             BT_WHITE.Size = new Size(149, 84);
-            BT_WHITE.TabIndex = 3;
+            BT_WHITE.TabIndex = 4;
             BT_WHITE.Text = "4";
             BT_WHITE.UseVisualStyleBackColor = false;
             BT_WHITE.Click += BT_WHITE_Click;
@@ -135,7 +135,7 @@
             BT_ORANGE.Location = new Point(623, 92);
             BT_ORANGE.Name = "BT_ORANGE";
             BT_ORANGE.Size = new Size(150, 84);
-            BT_ORANGE.TabIndex = 4;
+            BT_ORANGE.TabIndex = 6;
             BT_ORANGE.Text = "8";
             BT_ORANGE.UseVisualStyleBackColor = false;
             BT_ORANGE.Click += BT_ORANGE_Click;

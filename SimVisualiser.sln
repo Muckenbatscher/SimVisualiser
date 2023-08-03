@@ -13,6 +13,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ACCDataReader", "ACCDataRea
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HttpPost", "HttpPost\HttpPost.csproj", "{8A8F9BB3-F206-475C-8620-733D5E863FFF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimDataReadingCore", "SimDataReadingCore\SimDataReadingCore.csproj", "{1E045FC2-56EA-4986-AE09-7BCC064732C1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SharedMemoryReader", "SharedMemoryReader", "{C3898363-F75A-4AB6-87C8-94523F7E6DE2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharedMemoryReader", "SharedMemoryReader\SharedMemoryReader.csproj", "{8BF3FB31-512E-4BEC-96D9-D85B58ACACEE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,12 +41,23 @@ Global
 		{8A8F9BB3-F206-475C-8620-733D5E863FFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8A8F9BB3-F206-475C-8620-733D5E863FFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8A8F9BB3-F206-475C-8620-733D5E863FFF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E045FC2-56EA-4986-AE09-7BCC064732C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E045FC2-56EA-4986-AE09-7BCC064732C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E045FC2-56EA-4986-AE09-7BCC064732C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E045FC2-56EA-4986-AE09-7BCC064732C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8BF3FB31-512E-4BEC-96D9-D85B58ACACEE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8BF3FB31-512E-4BEC-96D9-D85B58ACACEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8BF3FB31-512E-4BEC-96D9-D85B58ACACEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8BF3FB31-512E-4BEC-96D9-D85B58ACACEE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{70870721-7419-48F9-A410-31FD18B99828} = {7DB15FC5-E332-44E0-ADF7-3CC5C230002C}
+		{1E045FC2-56EA-4986-AE09-7BCC064732C1} = {7DB15FC5-E332-44E0-ADF7-3CC5C230002C}
+		{C3898363-F75A-4AB6-87C8-94523F7E6DE2} = {7DB15FC5-E332-44E0-ADF7-3CC5C230002C}
+		{8BF3FB31-512E-4BEC-96D9-D85B58ACACEE} = {C3898363-F75A-4AB6-87C8-94523F7E6DE2}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4D16C675-2F83-4D6E-9535-EC3C1D92B8C3}

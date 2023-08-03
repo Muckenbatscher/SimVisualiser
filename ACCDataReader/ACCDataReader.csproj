@@ -6,4 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\SharedMemoryReader\SharedMemoryReader.csproj" />
+    <ProjectReference Include="..\SimDataReadingCore\SimDataReadingCore.csproj" />
+  </ItemGroup>
+
 </Project>
