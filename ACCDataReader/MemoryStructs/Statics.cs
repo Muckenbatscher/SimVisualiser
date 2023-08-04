@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ACCDataReader.MemoryStructs
+namespace ACCDataReading.MemoryStructs
 {
 
     [StructLayout(LayoutKind.Sequential, Pack = 4, CharSet = CharSet.Unicode)]
@@ -16,13 +16,13 @@ namespace ACCDataReader.MemoryStructs
         /// Version of the Shared Memory structure
         /// </summary>
         [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 15)]
-        public String SMVersion;
+        public string SMVersion;
 
         /// <summary>
         /// Version of Assetto Corsa
         /// </summary>
         [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 15)]
-        public String ACVersion;
+        public string ACVersion;
 
         // session static info
 
@@ -41,31 +41,31 @@ namespace ACCDataReader.MemoryStructs
         /// see ACCSharedMemoryDocumentation Appendix 2
         /// </summary>
         [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 33)]
-        public String CarModel;
+        public string CarModel;
 
         /// <summary>
         /// Name of the track
         /// </summary>
         [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 33)]
-        public String Track;
+        public string Track;
 
         /// <summary>
         /// Name of the player
         /// </summary>
         [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 33)]
-        public String PlayerName;
+        public string PlayerName;
 
         /// <summary>
         /// Surname of the player
         /// </summary>
         [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 33)]
-        public String PlayerSurname;
+        public string PlayerSurname;
 
         /// <summary>
         /// Nickname of the player
         /// </summary>
         [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 33)]
-        public String PlayerNick;
+        public string PlayerNick;
 
         /// <summary>
         /// Number of track sectors
@@ -241,7 +241,7 @@ namespace ACCDataReader.MemoryStructs
         /// </para>
         /// </summary>
         [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 15)]
-        public String TrackConfiguration;
+        public string TrackConfiguration;
 
         // since 1.10.2
 
@@ -278,7 +278,7 @@ namespace ACCDataReader.MemoryStructs
         /// </para>
         /// </summary>
         [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 33)]
-        public String CarSkin;
+        public string CarSkin;
 
         /// <summary>
         /// How many positions are going to be swapped in the second race
@@ -309,13 +309,13 @@ namespace ACCDataReader.MemoryStructs
         /// Name of the dry tyres
         /// </summary>
         [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 33)]
-        public String DryTyresName;
+        public string DryTyresName;
 
         /// <summary>
         /// Name of the wet tyres
         /// </summary>
         [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 33)]
-        public String WetTyresName;
+        public string WetTyresName;
 
 
     }

@@ -35,7 +35,9 @@
             BT_GREEN = new Button();
             BT_WHITE = new Button();
             BT_ORANGE = new Button();
+            TB_RPM = new TrackBar();
             TLP_FLAGS.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)TB_RPM).BeginInit();
             SuspendLayout();
             // 
             // BT_YELLOW
@@ -140,17 +142,28 @@
             BT_ORANGE.UseVisualStyleBackColor = false;
             BT_ORANGE.Click += BT_ORANGE_Click;
             // 
+            // TB_RPM
+            // 
+            TB_RPM.Location = new Point(15, 264);
+            TB_RPM.Maximum = 100;
+            TB_RPM.Name = "TB_RPM";
+            TB_RPM.Size = new Size(770, 45);
+            TB_RPM.TabIndex = 3;
+            // 
             // MainWindow
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(TB_RPM);
             Controls.Add(TLP_FLAGS);
             Name = "MainWindow";
             Text = "Form1";
             FormClosed += MainWindow_FormClosed;
             TLP_FLAGS.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)TB_RPM).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -162,5 +175,6 @@
         private Button BT_WHITE;
         private Button BT_CLEAR;
         private Button BT_ORANGE;
+        private TrackBar TB_RPM;
     }
 }

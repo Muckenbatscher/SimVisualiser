@@ -1,4 +1,4 @@
-﻿using ACCDataReader.MemoryStructs;
+﻿using ACCDataReading.MemoryStructs;
 using SimDataReadingCore.ModelClasses;
 using System;
 using System.Collections.Generic;
@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ACCDataReader.Services.Mapping
+namespace ACCDataReading.Services.Mapping
 {
     internal static class PhysicsMapper
     {

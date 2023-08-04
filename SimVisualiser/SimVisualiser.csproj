@@ -9,6 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\ACCDataReader\ACCDataReading.csproj" />
     <ProjectReference Include="..\SteelSeriesGameEngine\SteelSeriesGameEngine.csproj" />
   </ItemGroup>
 

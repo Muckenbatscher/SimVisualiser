@@ -1,5 +1,5 @@
-﻿using ACCDataReader.Enums;
-using ACCDataReader.MemoryStructs.SubStructs;
+﻿using ACCDataReading.Enums;
+using ACCDataReading.MemoryStructs.SubStructs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +7,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ACCDataReader.MemoryStructs
+namespace ACCDataReading.MemoryStructs
 {
 
 
@@ -34,25 +34,25 @@ namespace ACCDataReader.MemoryStructs
         /// Current lap time in text
         /// </summary>
         [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 15)]
-        public String CurrentTime;
+        public string CurrentTime;
 
         /// <summary>
         /// Last lap time in text
         /// </summary>
         [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 15)]
-        public String LastTime;
+        public string LastTime;
 
         /// <summary>
         /// Best lap time in text
         /// </summary>
         [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 15)]
-        public String BestTime;
+        public string BestTime;
 
         /// <summary>
         /// Last split time in text
         /// </summary>
         [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 15)]
-        public String Split;
+        public string Split;
 
         /// <summary>
         /// No of completed laps
@@ -113,7 +113,7 @@ namespace ACCDataReader.MemoryStructs
         /// Tyre compound used
         /// </summary>
         [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 33)]
-        public String TyreCompound;
+        public string TyreCompound;
 
         /// <summary>
         /// Replay multiplier
@@ -317,7 +317,7 @@ namespace ACCDataReader.MemoryStructs
         /// Delta time in text
         /// </summary>
         [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 15)]
-        public String DeltaLapTime;
+        public string DeltaLapTime;
 
         /// <summary>
         /// Delta time in milliseconds
@@ -328,7 +328,7 @@ namespace ACCDataReader.MemoryStructs
         /// Estimated lap time in text
         /// </summary>
         [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 15)]
-        public String EstimatedLapTime;
+        public string EstimatedLapTime;
 
         /// <summary>
         /// Estimated lap time in milliseconds
@@ -359,7 +359,7 @@ namespace ACCDataReader.MemoryStructs
         /// Status of track
         /// </summary>
         [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 33)]
-        public String TrackStatus;
+        public string TrackStatus;
 
         /// <summary>
         /// Mandatory pitstops the player still has to do

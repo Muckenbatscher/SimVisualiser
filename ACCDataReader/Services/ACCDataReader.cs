@@ -1,16 +1,16 @@
-﻿using ACCDataReader.MemoryStructs;
-using ACCDataReader.Services.Mapping;
+﻿using ACCDataReading.MemoryStructs;
+using ACCDataReading.Services.Mapping;
 using SharedMemoryReader.Services;
 using SimDataReadingCore.Events;
 using SimDataReadingCore.ModelClasses;
 using System.Timers;
 using Timer = System.Timers.Timer;
 
-namespace ACCDataReader.Services
+namespace ACCDataReading.Services
 {
     public class ACCDataReader : SimDataReader
     {
-        private Timer _physicsTimer, _graphicsTImer, _staticTimer;
+        private Timer _physicsTimer, _graphicsTimer, _staticTimer;
         private Timer _mainTimer;
 
         private SharedMemoryReader<Physics> _physicsReader;
@@ -23,25 +23,42 @@ namespace ACCDataReader.Services
 
         public ACCDataReader()
         {
+            SetUpMemoryReaders();
+            SetUpTimers();
+        }
+
+        private void SetUpMemoryReaders()
+        {
             _physicsReader = new SharedMemoryReader<Physics>(@"Local\acpmf_physics");
             _graphicsReader = new SharedMemoryReader<Graphics>(@"Local\acpmf_graphics");
             _staticsReader = new SharedMemoryReader<Statics>(@"Local\acpmf_static");
-
+        }
+        private void SetUpTimers()
+        {
             _physicsTimer = new Timer(10);
             _physicsTimer.AutoReset = true;
             _physicsTimer.Elapsed += PhysicsTimer_Elapsed;
 
-            _graphicsTImer = new Timer(100);
-            _physicsTimer.AutoReset = true;
-            _physicsTimer.Elapsed += GraphicsTimer_Elapsed;
+            _graphicsTimer = new Timer(100);
+            _graphicsTimer.AutoReset = true;
+            _graphicsTimer.Elapsed += GraphicsTimer_Elapsed;
 
             _staticTimer = new Timer(1000);
-            _physicsTimer.AutoReset = true;
-            _physicsTimer.Elapsed += StaticsTimer_Elapsed;
+            _staticTimer.AutoReset = true;
+            _staticTimer.Elapsed += StaticsTimer_Elapsed;
 
             _mainTimer = new Timer(50);
-            _physicsTimer.AutoReset = true;
-            _physicsTimer.Elapsed += MainTimer_Elapsed;
+            _mainTimer.AutoReset = true;
+            _mainTimer.Elapsed += MainTimer_Elapsed;
+
+            StartTimers();
+        }
+        private void StartTimers()
+        {
+            _physicsTimer.Start();
+            _graphicsTimer.Start();
+            _staticTimer.Start();
+            _mainTimer.Start();
         }
 
         private void PhysicsTimer_Elapsed(object sender, ElapsedEventArgs e)
@@ -56,7 +73,6 @@ namespace ACCDataReader.Services
         {
             _latestStatics = _staticsReader.ReadSharedMemory();
         }
-
         private void MainTimer_Elapsed(object sender, ElapsedEventArgs e)
         {
             var gameState = CreateGameState();

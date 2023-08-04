@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ACCDataReader.MemoryStructs.SubStructs
+namespace ACCDataReading.MemoryStructs.SubStructs
 {
     [StructLayout(LayoutKind.Sequential)]
     public struct Coordinates

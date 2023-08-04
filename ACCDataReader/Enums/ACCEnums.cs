@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ACCDataReader.Enums
+namespace ACCDataReading.Enums
 {
     public enum AC_FLAG_TYPE
     {

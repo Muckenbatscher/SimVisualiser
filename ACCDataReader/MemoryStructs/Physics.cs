@@ -1,4 +1,4 @@
-﻿using ACCDataReader.MemoryStructs.SubStructs;
+﻿using ACCDataReading.MemoryStructs.SubStructs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ACCDataReader.MemoryStructs
+namespace ACCDataReading.MemoryStructs
 {
 
     [StructLayout(LayoutKind.Sequential, Pack = 4, CharSet = CharSet.Unicode)]

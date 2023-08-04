@@ -19,7 +19,13 @@ namespace SharedMemoryReader.Services
 
         public M? ReadSharedMemory()
         {
-            var mappedFile =  MemoryMappedFile.OpenExisting(Path);
+            MemoryMappedFile mappedFile = null;
+            try
+            {
+                mappedFile = MemoryMappedFile.OpenExisting(Path);
+            }
+            catch { }
+           
             if (mappedFile == null)
                 return null;
 

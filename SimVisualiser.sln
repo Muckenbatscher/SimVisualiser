@@ -9,15 +9,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimVisualiser", "SimVisuali
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SimDataReading", "SimDataReading", "{7DB15FC5-E332-44E0-ADF7-3CC5C230002C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ACCDataReader", "ACCDataReader\ACCDataReader.csproj", "{70870721-7419-48F9-A410-31FD18B99828}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ACCDataReading", "ACCDataReader\ACCDataReading.csproj", "{70870721-7419-48F9-A410-31FD18B99828}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HttpPost", "HttpPost\HttpPost.csproj", "{8A8F9BB3-F206-475C-8620-733D5E863FFF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimDataReadingCore", "SimDataReadingCore\SimDataReadingCore.csproj", "{1E045FC2-56EA-4986-AE09-7BCC064732C1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimDataReadingCore", "SimDataReadingCore\SimDataReadingCore.csproj", "{1E045FC2-56EA-4986-AE09-7BCC064732C1}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SharedMemoryReader", "SharedMemoryReader", "{C3898363-F75A-4AB6-87C8-94523F7E6DE2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharedMemoryReader", "SharedMemoryReader\SharedMemoryReader.csproj", "{8BF3FB31-512E-4BEC-96D9-D85B58ACACEE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SharedMemoryReader", "SharedMemoryReader\SharedMemoryReader.csproj", "{8BF3FB31-512E-4BEC-96D9-D85B58ACACEE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

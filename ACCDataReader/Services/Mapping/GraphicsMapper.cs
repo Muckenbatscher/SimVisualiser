@@ -1,5 +1,5 @@
-﻿using ACCDataReader.Enums;
-using ACCDataReader.MemoryStructs;
+﻿using ACCDataReading.Enums;
+using ACCDataReading.MemoryStructs;
 using SimDataReadingCore.Enumerations;
 using SimDataReadingCore.ModelClasses;
 using System;
@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ACCDataReader.Services.Mapping
+namespace ACCDataReading.Services.Mapping
 {
     internal static class GraphicsMapper
     {
@@ -41,7 +41,7 @@ namespace ACCDataReader.Services.Mapping
                 case AC_FLAG_TYPE.AC_ORANGE_FLAG:
                     return Flag.OrangeFlag;
 
-                default: 
+                default:
                     return Flag.None;
             }
         }
