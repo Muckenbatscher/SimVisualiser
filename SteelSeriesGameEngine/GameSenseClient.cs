@@ -1,4 +1,4 @@
-﻿using SteelSeriesGameEngine.Enums;
+﻿using SimDataReadingCore.Enumerations;
 using SteelSeriesGameEngine.Models;
 using SteelSeriesGameEngine.Services.Finalization;
 using SteelSeriesGameEngine.Services.GameEvents;
@@ -47,29 +47,9 @@ namespace SteelSeriesGameEngine
             await _stopGameService.StopGame();
         }
 
-        public async Task ClearFlagEventAsync()
+        public async Task SendFlagEventAsync(Flag flag)
         {
-            await _gameEventService.SendFlagEventAsync(FlagType.NoFloag);
-        }
-        public async Task SendBlueFlagEventAsync()
-        {
-            await _gameEventService.SendFlagEventAsync(FlagType.BlueFlag);
-        }
-        public async Task SendYellowFlagEventAsync()
-        {
-            await _gameEventService.SendFlagEventAsync(FlagType.YellowFlag);
-        }
-        public async Task SendWhiteFlagEventAsync()
-        {
-            await _gameEventService.SendFlagEventAsync(FlagType.WhiteFlag);
-        }
-        public async Task SendGreenFlagEventAsync()
-        {
-            await _gameEventService.SendFlagEventAsync(FlagType.GreenFlag);
-        }
-        public async Task SendOrangeFlagEventAsync()
-        {
-            await _gameEventService.SendFlagEventAsync(FlagType.OrangeFlag);
+            await _gameEventService.SendFlagEventAsync(flag);
         }
 
     }

@@ -6,7 +6,13 @@
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
+    <StartupObject>SimVisualiser.Program</StartupObject>
+    <ApplicationIcon>icon white.ico</ApplicationIcon>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="icon white.ico" />
+  </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\ACCDataReader\ACCDataReading.csproj" />

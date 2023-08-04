@@ -28,16 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             BT_YELLOW = new Button();
             BT_BLUE = new Button();
             TLP_FLAGS = new TableLayoutPanel();
             BT_CLEAR = new Button();
             BT_GREEN = new Button();
-            BT_WHITE = new Button();
             BT_ORANGE = new Button();
-            TB_RPM = new TrackBar();
+            BT_WHITE = new Button();
+            TrayIcon = new NotifyIcon(components);
             TLP_FLAGS.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)TB_RPM).BeginInit();
             SuspendLayout();
             // 
             // BT_YELLOW
@@ -45,11 +46,11 @@
             BT_YELLOW.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             BT_YELLOW.BackColor = Color.Yellow;
             BT_YELLOW.ForeColor = Color.Black;
-            BT_YELLOW.Location = new Point(158, 92);
+            BT_YELLOW.Location = new Point(3, 92);
             BT_YELLOW.Name = "BT_YELLOW";
             BT_YELLOW.Size = new Size(149, 84);
             BT_YELLOW.TabIndex = 3;
-            BT_YELLOW.Text = "2";
+            BT_YELLOW.Text = "1";
             BT_YELLOW.UseVisualStyleBackColor = false;
             BT_YELLOW.Click += BT_YELLOW_Click;
             // 
@@ -58,11 +59,11 @@
             BT_BLUE.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             BT_BLUE.BackColor = Color.Blue;
             BT_BLUE.ForeColor = Color.White;
-            BT_BLUE.Location = new Point(3, 92);
+            BT_BLUE.Location = new Point(158, 92);
             BT_BLUE.Name = "BT_BLUE";
             BT_BLUE.Size = new Size(149, 84);
             BT_BLUE.TabIndex = 2;
-            BT_BLUE.Text = "1";
+            BT_BLUE.Text = "2";
             BT_BLUE.UseVisualStyleBackColor = false;
             BT_BLUE.Click += BT_BLUE_Click;
             // 
@@ -76,11 +77,11 @@
             TLP_FLAGS.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
             TLP_FLAGS.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
             TLP_FLAGS.Controls.Add(BT_CLEAR, 0, 0);
-            TLP_FLAGS.Controls.Add(BT_BLUE, 0, 1);
-            TLP_FLAGS.Controls.Add(BT_YELLOW, 1, 1);
-            TLP_FLAGS.Controls.Add(BT_GREEN, 3, 1);
-            TLP_FLAGS.Controls.Add(BT_WHITE, 2, 1);
+            TLP_FLAGS.Controls.Add(BT_GREEN, 2, 1);
+            TLP_FLAGS.Controls.Add(BT_YELLOW, 0, 1);
             TLP_FLAGS.Controls.Add(BT_ORANGE, 4, 1);
+            TLP_FLAGS.Controls.Add(BT_BLUE, 1, 1);
+            TLP_FLAGS.Controls.Add(BT_WHITE, 3, 1);
             TLP_FLAGS.Location = new Point(12, 12);
             TLP_FLAGS.Name = "TLP_FLAGS";
             TLP_FLAGS.RowCount = 2;
@@ -108,26 +109,13 @@
             BT_GREEN.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             BT_GREEN.BackColor = Color.Green;
             BT_GREEN.ForeColor = Color.White;
-            BT_GREEN.Location = new Point(468, 92);
+            BT_GREEN.Location = new Point(313, 92);
             BT_GREEN.Name = "BT_GREEN";
             BT_GREEN.Size = new Size(149, 84);
             BT_GREEN.TabIndex = 5;
-            BT_GREEN.Text = "7";
+            BT_GREEN.Text = "3";
             BT_GREEN.UseVisualStyleBackColor = false;
             BT_GREEN.Click += BT_GREEN_Click;
-            // 
-            // BT_WHITE
-            // 
-            BT_WHITE.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            BT_WHITE.BackColor = Color.White;
-            BT_WHITE.ForeColor = Color.Black;
-            BT_WHITE.Location = new Point(313, 92);
-            BT_WHITE.Name = "BT_WHITE";
-            BT_WHITE.Size = new Size(149, 84);
-            BT_WHITE.TabIndex = 4;
-            BT_WHITE.Text = "4";
-            BT_WHITE.UseVisualStyleBackColor = false;
-            BT_WHITE.Click += BT_WHITE_Click;
             // 
             // BT_ORANGE
             // 
@@ -138,32 +126,42 @@
             BT_ORANGE.Name = "BT_ORANGE";
             BT_ORANGE.Size = new Size(150, 84);
             BT_ORANGE.TabIndex = 6;
-            BT_ORANGE.Text = "8";
+            BT_ORANGE.Text = "7";
             BT_ORANGE.UseVisualStyleBackColor = false;
             BT_ORANGE.Click += BT_ORANGE_Click;
             // 
-            // TB_RPM
+            // BT_WHITE
             // 
-            TB_RPM.Location = new Point(15, 264);
-            TB_RPM.Maximum = 100;
-            TB_RPM.Name = "TB_RPM";
-            TB_RPM.Size = new Size(770, 45);
-            TB_RPM.TabIndex = 3;
+            BT_WHITE.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            BT_WHITE.BackColor = Color.White;
+            BT_WHITE.ForeColor = Color.Black;
+            BT_WHITE.Location = new Point(468, 92);
+            BT_WHITE.Name = "BT_WHITE";
+            BT_WHITE.Size = new Size(149, 84);
+            BT_WHITE.TabIndex = 4;
+            BT_WHITE.Text = "4";
+            BT_WHITE.UseVisualStyleBackColor = false;
+            BT_WHITE.Click += BT_WHITE_Click;
+            // 
+            // TrayIcon
+            // 
+            TrayIcon.Icon = (Icon)resources.GetObject("TrayIcon.Icon");
+            TrayIcon.Text = "SimVisualiser";
+            TrayIcon.MouseClick += TrayIcon_MouseClick;
             // 
             // MainWindow
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(TB_RPM);
             Controls.Add(TLP_FLAGS);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "MainWindow";
-            Text = "Form1";
+            Text = "SimVisualiser";
             FormClosed += MainWindow_FormClosed;
+            Resize += MainWindow_Resize;
             TLP_FLAGS.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)TB_RPM).EndInit();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -175,6 +173,6 @@
         private Button BT_WHITE;
         private Button BT_CLEAR;
         private Button BT_ORANGE;
-        private TrackBar TB_RPM;
+        private NotifyIcon TrayIcon;
     }
 }

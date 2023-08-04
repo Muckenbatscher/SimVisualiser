@@ -2,6 +2,7 @@ using ACCDataReading.Services;
 using SimDataReadingCore.Enumerations;
 using SimDataReadingCore.Events;
 using SteelSeriesGameEngine;
+using System.Windows.Forms;
 
 namespace SimVisualiser
 {
@@ -25,28 +26,7 @@ namespace SimVisualiser
             if (e.GameState == null)
                 return;
 
-            switch (e.GameState.Flag)
-            {
-                case Flag.YellowFlag:
-                    await _client.SendYellowFlagEventAsync();
-                    break;
-                case Flag.BlueFlag:
-                    await _client.SendBlueFlagEventAsync();
-                    break;
-                case Flag.GreenFlag:
-                    await _client.SendGreenFlagEventAsync();
-                    break;
-                case Flag.WhiteFlag:
-                case Flag.CheckeredFlag:
-                    await _client.SendWhiteFlagEventAsync();
-                    break;
-                case Flag.OrangeFlag:
-                    await _client.SendYellowFlagEventAsync();
-                    break;
-                default:
-                    await _client.ClearFlagEventAsync();
-                    break;
-            }
+            await _client.SendFlagEventAsync(e.GameState.Flag);
         }
 
         private async void MainWindow_FormClosed(object sender, FormClosedEventArgs e)
@@ -57,27 +37,43 @@ namespace SimVisualiser
 
         private async void BT_CLEAR_Click(object sender, EventArgs e)
         {
-            await _client.ClearFlagEventAsync();
+            await _client.SendFlagEventAsync(Flag.None);
         }
         private async void BT_BLUE_Click(object sender, EventArgs e)
         {
-            await _client.SendBlueFlagEventAsync();
+            await _client.SendFlagEventAsync(Flag.BlueFlag);
         }
         private async void BT_YELLOW_Click(object sender, EventArgs e)
         {
-            await _client.SendYellowFlagEventAsync();
+            await _client.SendFlagEventAsync(Flag.YellowFlag);
         }
         private async void BT_WHITE_Click(object sender, EventArgs e)
         {
-            await _client.SendWhiteFlagEventAsync();
+            await _client.SendFlagEventAsync(Flag.WhiteFlag);
         }
         private async void BT_GREEN_Click(object sender, EventArgs e)
         {
-            await _client.SendGreenFlagEventAsync();
+            await _client.SendFlagEventAsync(Flag.GreenFlag);
         }
         private async void BT_ORANGE_Click(object sender, EventArgs e)
         {
-            await _client.SendOrangeFlagEventAsync();
+            await _client.SendFlagEventAsync(Flag.OrangeFlag);
         }
+
+        private void MainWindow_Resize(object sender, EventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Minimized)
+            {
+                Hide();
+                TrayIcon.Visible = true;
+            }
+        }
+        private void TrayIcon_MouseClick(object sender, MouseEventArgs e)
+        {
+            Show();
+            this.WindowState = FormWindowState.Normal;
+            TrayIcon.Visible = false;
+        }
+
     }
 }

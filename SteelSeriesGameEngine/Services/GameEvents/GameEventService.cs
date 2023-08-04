@@ -1,7 +1,7 @@
 ﻿using HttpPost.EndPoints.GameEvent;
 using HttpPost.Messages.GameEvents;
+using SimDataReadingCore.Enumerations;
 using SteelSeriesGameEngine.Constants;
-using SteelSeriesGameEngine.Enums;
 using SteelSeriesGameEngine.Models;
 using System;
 using System.Collections.Generic;
@@ -35,7 +35,7 @@ namespace SteelSeriesGameEngine.Services.GameEvents
             };
         }
 
-        public async Task SendFlagEventAsync(FlagType flagType)
+        public async Task SendFlagEventAsync(Flag flagType)
         {
             var message = GetPrefilledMessage((int)flagType);
             message.EventName = GameEventMetadata.FLAG_EVENT_NAME;
