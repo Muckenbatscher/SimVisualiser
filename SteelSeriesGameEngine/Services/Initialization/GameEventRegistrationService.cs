@@ -1,7 +1,9 @@
 ﻿using HttpPost.EndPoints.Initialization;
 using HttpPost.Messages.Initialization;
 using SteelSeriesGameEngine.Constants;
+using SteelSeriesGameEngine.Interfaces;
 using SteelSeriesGameEngine.Models;
+using SteelSeriesGameEngine.Services.SampleMessageGeneration.GameEventRegistration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,27 +14,19 @@ namespace SteelSeriesGameEngine.Services.Initialization
 {
     internal class GameEventRegistrationService : GameSenseServiceBase
     {
-        private GameEventRegistrationEndpoint _endPoint;
+        private readonly GameEventRegistrationEndpoint _endPoint;
+
+        private readonly ISampleMessageGeneration<GameEventRegistrationMessage> _flagMessageGeneration;
 
         public GameEventRegistrationService(TargetAddress baseAddress) : base(baseAddress)
         {
             _endPoint = new GameEventRegistrationEndpoint(baseAddress.GetURL());
-        }
-
-        private static GameEventRegistrationMessage GetPrefilledMessage()
-        {
-            return new GameEventRegistrationMessage()
-            {
-                Game = GameMetadata.GAME_NAME,
-                MinValue = 0,
-                MaxValue = 8
-            };
+            _flagMessageGeneration = new FlagEventRegistrationSampleMessageService();
         }
 
         public async Task RegisterFlagEventAsync()
         {
-            var message = GetPrefilledMessage();
-            message.EventName = GameEventMetadata.FLAG_EVENT_NAME;
+            var message = _flagMessageGeneration.GetFilledMessage();
             await _endPoint.PostMessageAsync(message);
         }
     }

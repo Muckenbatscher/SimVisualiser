@@ -62,17 +62,16 @@ namespace SimVisualiser
 
         private void MainWindow_Resize(object sender, EventArgs e)
         {
-            if (this.WindowState == FormWindowState.Minimized)
+            if (WindowState == FormWindowState.Minimized)
             {
                 Hide();
                 TrayIcon.Visible = true;
             }
         }
-        private void TrayIcon_MouseClick(object sender, MouseEventArgs e)
+        private void TrayIcon_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             Show();
-            this.WindowState = FormWindowState.Normal;
-            TrayIcon.Visible = false;
+            WindowState = FormWindowState.Normal;
         }
 
     }

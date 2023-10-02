@@ -13,7 +13,7 @@ namespace SteelSeriesGameEngine.Services.GameEvents
 {
     internal class GameEventService : GameSenseServiceBase
     {
-        private GameEventEndpoint _endPoint;
+        private readonly GameEventEndpoint _endPoint;
         public GameEventService(TargetAddress baseAddress) : base(baseAddress)
         {
             _endPoint = new GameEventEndpoint(baseAddress.GetURL());

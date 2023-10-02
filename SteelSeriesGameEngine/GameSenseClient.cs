@@ -15,8 +15,6 @@ namespace SteelSeriesGameEngine
     {
         private TargetAddress _targetAddress;
 
-        private AddressRetriever _addressRetriever;
-
         private GameRegistrationService _gameRegistrationService;
         private GameEventRegistrationService _gameEventRegistrationService;
         private StopGameService _stopGameService;
@@ -25,8 +23,7 @@ namespace SteelSeriesGameEngine
 
         public GameSenseClient()
         {
-            _addressRetriever = new AddressRetriever();
-            _targetAddress = _addressRetriever.GetTargetAddress();
+            _targetAddress = AddressRetriever.GetTargetAddress();
             _gameRegistrationService = new GameRegistrationService(_targetAddress);
             _gameEventRegistrationService = new GameEventRegistrationService(_targetAddress);
             _stopGameService = new StopGameService(_targetAddress);

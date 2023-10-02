@@ -147,7 +147,7 @@
             // 
             TrayIcon.Icon = (Icon)resources.GetObject("TrayIcon.Icon");
             TrayIcon.Text = "SimVisualiser";
-            TrayIcon.MouseClick += TrayIcon_MouseClick;
+            TrayIcon.MouseDoubleClick += TrayIcon_MouseDoubleClick;
             // 
             // MainWindow
             // 

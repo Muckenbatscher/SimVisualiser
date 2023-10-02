@@ -11,4 +11,9 @@
     <ProjectReference Include="..\SimDataReadingCore\SimDataReadingCore.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Services\SampleMessageGeneration\GameEventBinding\" />
+    <Folder Include="Services\SampleMessageGeneration\GameEventTriggering\" />
+  </ItemGroup>
+
 </Project>

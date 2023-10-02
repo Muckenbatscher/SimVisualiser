@@ -12,7 +12,7 @@ namespace SteelSeriesGameEngine.Services.Finalization
 {
     internal class UnregisterGameService : GameSenseServiceBase
     {
-        private UnregisterGameEndpoint _endPoint;
+        private readonly UnregisterGameEndpoint _endPoint;
 
         public UnregisterGameService(TargetAddress baseAddress) : base(baseAddress)
         {

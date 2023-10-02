@@ -14,7 +14,7 @@ namespace SteelSeriesGameEngine.Services.Initialization
         private const string _path = @"SteelSeries\SteelSeries Engine 3";
         private const string _fileName = @"coreProps.json";
 
-        internal TargetAddress GetTargetAddress()
+        internal static TargetAddress GetTargetAddress()
         {
             string programDataPath = Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData);
             string targetFilePath = Path.Combine(programDataPath, _path, _fileName);
