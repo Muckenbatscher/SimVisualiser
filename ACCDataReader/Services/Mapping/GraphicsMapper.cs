@@ -15,9 +15,10 @@ namespace ACCDataReading.Services.Mapping
         internal static GameState AddGraphicsInfo(this GameState gameState, Graphics? graphics)
         {
             if (gameState == null || graphics == null)
-                return null;
+                return gameState;
 
-            gameState.LapTimeDelta = (double)graphics.Value.IDeltaLapTime / 1000;
+            gameState.IsGameRunning = IsGameRunning(graphics.Value.Status, graphics.Value.Session);
+            gameState.LapTimeDelta = graphics.Value.IDeltaLapTime / 1000D;
             gameState.Flag = GetCoreFlag(graphics.Value.Flag);
             return gameState;
         }
@@ -44,6 +45,11 @@ namespace ACCDataReading.Services.Mapping
                 default:
                     return Flag.None;
             }
+        }
+
+        internal static bool IsGameRunning(AC_STATUS status, AC_SESSION_TYPE sessionType)
+        {
+            return status == AC_STATUS.AC_LIVE && sessionType != AC_SESSION_TYPE.AC_UNKNOWN;
         }
     }
 }

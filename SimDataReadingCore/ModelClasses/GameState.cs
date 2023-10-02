@@ -9,6 +9,8 @@ namespace SimDataReadingCore.ModelClasses
 {
     public class GameState
     {
+        public bool IsGameRunning { get; set; }
+
         public Flag Flag { get; set; }
 
         public int CurrentRPM { get; set; }
@@ -29,8 +31,9 @@ namespace SimDataReadingCore.ModelClasses
 
         public double LapTimeDelta { get; set; }
 
-        public GameState(Flag flag, int currentRPM, int maxRPM, bool tCActive, bool aBSActive, double lapTimeDelta) : this()
+        public GameState(bool gameRunning, Flag flag, int currentRPM, int maxRPM, bool tCActive, bool aBSActive, double lapTimeDelta) : this()
         {
+            IsGameRunning = gameRunning;
             Flag = flag;
             CurrentRPM = currentRPM;
             MaxRPM = maxRPM;

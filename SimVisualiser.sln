@@ -19,6 +19,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SharedMemoryReader", "Share
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SharedMemoryReader", "SharedMemoryReader\SharedMemoryReader.csproj", "{8BF3FB31-512E-4BEC-96D9-D85B58ACACEE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimDataRelaying", "SimDataRelaying\SimDataRelaying.csproj", "{C405F748-3A3A-4B3B-868C-2E7DC4C17202}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -49,6 +51,10 @@ Global
 		{8BF3FB31-512E-4BEC-96D9-D85B58ACACEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8BF3FB31-512E-4BEC-96D9-D85B58ACACEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8BF3FB31-512E-4BEC-96D9-D85B58ACACEE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C405F748-3A3A-4B3B-868C-2E7DC4C17202}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C405F748-3A3A-4B3B-868C-2E7DC4C17202}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C405F748-3A3A-4B3B-868C-2E7DC4C17202}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C405F748-3A3A-4B3B-868C-2E7DC4C17202}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

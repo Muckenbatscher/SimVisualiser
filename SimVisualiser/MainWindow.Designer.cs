@@ -33,11 +33,13 @@
             BT_YELLOW = new Button();
             BT_BLUE = new Button();
             TLP_FLAGS = new TableLayoutPanel();
-            BT_CLEAR = new Button();
-            BT_GREEN = new Button();
             BT_ORANGE = new Button();
             BT_WHITE = new Button();
+            BT_GREEN = new Button();
+            BT_CLEAR = new Button();
             TrayIcon = new NotifyIcon(components);
+            BT_CHECKERED_FLAG = new Button();
+            BT_BLACK_FLAG = new Button();
             TLP_FLAGS.SuspendLayout();
             SuspendLayout();
             // 
@@ -46,102 +48,101 @@
             BT_YELLOW.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             BT_YELLOW.BackColor = Color.Yellow;
             BT_YELLOW.ForeColor = Color.Black;
-            BT_YELLOW.Location = new Point(3, 92);
+            BT_YELLOW.Location = new Point(100, 148);
             BT_YELLOW.Name = "BT_YELLOW";
-            BT_YELLOW.Size = new Size(149, 84);
+            BT_YELLOW.Size = new Size(91, 139);
             BT_YELLOW.TabIndex = 3;
             BT_YELLOW.Text = "1";
             BT_YELLOW.UseVisualStyleBackColor = false;
-            BT_YELLOW.Click += BT_YELLOW_Click;
             // 
             // BT_BLUE
             // 
             BT_BLUE.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             BT_BLUE.BackColor = Color.Blue;
             BT_BLUE.ForeColor = Color.White;
-            BT_BLUE.Location = new Point(158, 92);
+            BT_BLUE.Location = new Point(197, 148);
             BT_BLUE.Name = "BT_BLUE";
-            BT_BLUE.Size = new Size(149, 84);
+            BT_BLUE.Size = new Size(91, 139);
             BT_BLUE.TabIndex = 2;
             BT_BLUE.Text = "2";
             BT_BLUE.UseVisualStyleBackColor = false;
-            BT_BLUE.Click += BT_BLUE_Click;
             // 
             // TLP_FLAGS
             // 
-            TLP_FLAGS.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            TLP_FLAGS.ColumnCount = 5;
-            TLP_FLAGS.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
-            TLP_FLAGS.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
-            TLP_FLAGS.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
-            TLP_FLAGS.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
-            TLP_FLAGS.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
-            TLP_FLAGS.Controls.Add(BT_CLEAR, 0, 0);
-            TLP_FLAGS.Controls.Add(BT_GREEN, 2, 1);
-            TLP_FLAGS.Controls.Add(BT_YELLOW, 0, 1);
-            TLP_FLAGS.Controls.Add(BT_ORANGE, 4, 1);
-            TLP_FLAGS.Controls.Add(BT_BLUE, 1, 1);
-            TLP_FLAGS.Controls.Add(BT_WHITE, 3, 1);
+            TLP_FLAGS.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            TLP_FLAGS.ColumnCount = 8;
+            TLP_FLAGS.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 12.5F));
+            TLP_FLAGS.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 12.5F));
+            TLP_FLAGS.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 12.5F));
+            TLP_FLAGS.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 12.5F));
+            TLP_FLAGS.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 12.5F));
+            TLP_FLAGS.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 12.5F));
+            TLP_FLAGS.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 12.5F));
+            TLP_FLAGS.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 12.5F));
+            TLP_FLAGS.Controls.Add(BT_ORANGE, 7, 1);
+            TLP_FLAGS.Controls.Add(BT_WHITE, 4, 1);
+            TLP_FLAGS.Controls.Add(BT_GREEN, 3, 1);
+            TLP_FLAGS.Controls.Add(BT_BLUE, 2, 1);
+            TLP_FLAGS.Controls.Add(BT_YELLOW, 1, 1);
+            TLP_FLAGS.Controls.Add(BT_CLEAR, 0, 1);
+            TLP_FLAGS.Controls.Add(BT_CHECKERED_FLAG, 5, 1);
+            TLP_FLAGS.Controls.Add(BT_BLACK_FLAG, 6, 1);
             TLP_FLAGS.Location = new Point(12, 12);
             TLP_FLAGS.Name = "TLP_FLAGS";
             TLP_FLAGS.RowCount = 2;
             TLP_FLAGS.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             TLP_FLAGS.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            TLP_FLAGS.Size = new Size(776, 179);
+            TLP_FLAGS.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            TLP_FLAGS.Size = new Size(776, 290);
             TLP_FLAGS.TabIndex = 2;
-            // 
-            // BT_CLEAR
-            // 
-            BT_CLEAR.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            BT_CLEAR.BackColor = Color.Black;
-            TLP_FLAGS.SetColumnSpan(BT_CLEAR, 5);
-            BT_CLEAR.ForeColor = Color.White;
-            BT_CLEAR.Location = new Point(3, 3);
-            BT_CLEAR.Name = "BT_CLEAR";
-            BT_CLEAR.Size = new Size(770, 83);
-            BT_CLEAR.TabIndex = 1;
-            BT_CLEAR.Text = "0";
-            BT_CLEAR.UseVisualStyleBackColor = false;
-            BT_CLEAR.Click += BT_CLEAR_Click;
-            // 
-            // BT_GREEN
-            // 
-            BT_GREEN.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            BT_GREEN.BackColor = Color.Green;
-            BT_GREEN.ForeColor = Color.White;
-            BT_GREEN.Location = new Point(313, 92);
-            BT_GREEN.Name = "BT_GREEN";
-            BT_GREEN.Size = new Size(149, 84);
-            BT_GREEN.TabIndex = 5;
-            BT_GREEN.Text = "3";
-            BT_GREEN.UseVisualStyleBackColor = false;
-            BT_GREEN.Click += BT_GREEN_Click;
             // 
             // BT_ORANGE
             // 
             BT_ORANGE.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             BT_ORANGE.BackColor = Color.Orange;
             BT_ORANGE.ForeColor = Color.Black;
-            BT_ORANGE.Location = new Point(623, 92);
+            BT_ORANGE.Location = new Point(682, 148);
             BT_ORANGE.Name = "BT_ORANGE";
-            BT_ORANGE.Size = new Size(150, 84);
+            BT_ORANGE.Size = new Size(91, 139);
             BT_ORANGE.TabIndex = 6;
             BT_ORANGE.Text = "7";
             BT_ORANGE.UseVisualStyleBackColor = false;
-            BT_ORANGE.Click += BT_ORANGE_Click;
             // 
             // BT_WHITE
             // 
             BT_WHITE.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             BT_WHITE.BackColor = Color.White;
             BT_WHITE.ForeColor = Color.Black;
-            BT_WHITE.Location = new Point(468, 92);
+            BT_WHITE.Location = new Point(391, 148);
             BT_WHITE.Name = "BT_WHITE";
-            BT_WHITE.Size = new Size(149, 84);
+            BT_WHITE.Size = new Size(91, 139);
             BT_WHITE.TabIndex = 4;
             BT_WHITE.Text = "4";
             BT_WHITE.UseVisualStyleBackColor = false;
-            BT_WHITE.Click += BT_WHITE_Click;
+            // 
+            // BT_GREEN
+            // 
+            BT_GREEN.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            BT_GREEN.BackColor = Color.Green;
+            BT_GREEN.ForeColor = Color.White;
+            BT_GREEN.Location = new Point(294, 148);
+            BT_GREEN.Name = "BT_GREEN";
+            BT_GREEN.Size = new Size(91, 139);
+            BT_GREEN.TabIndex = 5;
+            BT_GREEN.Text = "3";
+            BT_GREEN.UseVisualStyleBackColor = false;
+            // 
+            // BT_CLEAR
+            // 
+            BT_CLEAR.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            BT_CLEAR.BackColor = Color.Black;
+            BT_CLEAR.ForeColor = Color.White;
+            BT_CLEAR.Location = new Point(3, 148);
+            BT_CLEAR.Name = "BT_CLEAR";
+            BT_CLEAR.Size = new Size(91, 139);
+            BT_CLEAR.TabIndex = 1;
+            BT_CLEAR.Text = "0";
+            BT_CLEAR.UseVisualStyleBackColor = false;
             // 
             // TrayIcon
             // 
@@ -149,11 +150,35 @@
             TrayIcon.Text = "SimVisualiser";
             TrayIcon.MouseDoubleClick += TrayIcon_MouseDoubleClick;
             // 
+            // BT_CHECKERED_FLAG
+            // 
+            BT_CHECKERED_FLAG.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            BT_CHECKERED_FLAG.BackColor = Color.DarkGray;
+            BT_CHECKERED_FLAG.ForeColor = Color.Black;
+            BT_CHECKERED_FLAG.Location = new Point(488, 148);
+            BT_CHECKERED_FLAG.Name = "BT_CHECKERED_FLAG";
+            BT_CHECKERED_FLAG.Size = new Size(91, 139);
+            BT_CHECKERED_FLAG.TabIndex = 7;
+            BT_CHECKERED_FLAG.Text = "5";
+            BT_CHECKERED_FLAG.UseVisualStyleBackColor = false;
+            // 
+            // BT_BLACK_FLAG
+            // 
+            BT_BLACK_FLAG.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            BT_BLACK_FLAG.BackColor = Color.Black;
+            BT_BLACK_FLAG.ForeColor = Color.White;
+            BT_BLACK_FLAG.Location = new Point(585, 148);
+            BT_BLACK_FLAG.Name = "BT_BLACK_FLAG";
+            BT_BLACK_FLAG.Size = new Size(91, 139);
+            BT_BLACK_FLAG.TabIndex = 8;
+            BT_BLACK_FLAG.Text = "6";
+            BT_BLACK_FLAG.UseVisualStyleBackColor = false;
+            // 
             // MainWindow
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(800, 420);
             Controls.Add(TLP_FLAGS);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "MainWindow";
@@ -174,5 +199,7 @@
         private Button BT_CLEAR;
         private Button BT_ORANGE;
         private NotifyIcon TrayIcon;
+        private Button BT_CHECKERED_FLAG;
+        private Button BT_BLACK_FLAG;
     }
 }

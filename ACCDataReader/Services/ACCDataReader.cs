@@ -3,6 +3,7 @@ using ACCDataReading.Services.Mapping;
 using SharedMemoryReader.Services;
 using SimDataReadingCore.Events;
 using SimDataReadingCore.ModelClasses;
+using SimDataReadingCore.Reader;
 using System.Timers;
 using Timer = System.Timers.Timer;
 
@@ -61,19 +62,19 @@ namespace ACCDataReading.Services
             _mainTimer.Start();
         }
 
-        private void PhysicsTimer_Elapsed(object sender, ElapsedEventArgs e)
+        private void PhysicsTimer_Elapsed(object? sender, ElapsedEventArgs e)
         {
             _latestPhysics = _physicsReader.ReadSharedMemory();
         }
-        private void GraphicsTimer_Elapsed(object sender, ElapsedEventArgs e)
+        private void GraphicsTimer_Elapsed(object? sender, ElapsedEventArgs e)
         {
             _latestGraphics = _graphicsReader.ReadSharedMemory();
         }
-        private void StaticsTimer_Elapsed(object sender, ElapsedEventArgs e)
+        private void StaticsTimer_Elapsed(object? sender, ElapsedEventArgs e)
         {
             _latestStatics = _staticsReader.ReadSharedMemory();
         }
-        private void MainTimer_Elapsed(object sender, ElapsedEventArgs e)
+        private void MainTimer_Elapsed(object? sender, ElapsedEventArgs e)
         {
             var gameState = CreateGameState();
             if (gameState != null)
@@ -84,14 +85,19 @@ namespace ACCDataReading.Services
 
         private GameState CreateGameState()
         {
-            if (_latestStatics == null && _latestPhysics == null && _latestGraphics == null)
-                return null;
-
             var state = new GameState();
+            if (_latestStatics == null && _latestPhysics == null && _latestGraphics == null)
+                return GetNonRunningGameState();
+
             state.AddStaticsInfo(_latestStatics);
             state.AddGraphicsInfo(_latestGraphics);
             state.AddPhysicsInfo(_latestPhysics);
             return state;
+        }
+
+        private static GameState GetNonRunningGameState()
+        {
+            return new GameState() { IsGameRunning = false };
         }
     }
 }

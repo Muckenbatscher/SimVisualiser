@@ -10,13 +10,13 @@ namespace SteelSeriesGameEngine.Services.SampleMessageGeneration.GameEventRegist
 {
     internal class GameEventRegistrationSampleMessageService
     {
-        protected GameEventRegistrationMessage GetFilledRegistrationMessage(string eventName)
+        protected GameEventRegistrationMessage GetFilledRegistrationMessage(string eventName, int minValue, int maxValue)
         {
             return new GameEventRegistrationMessage()
             {
                 Game = eventName,
-                MinValue = 0,
-                MaxValue = 8
+                MinValue = minValue,
+                MaxValue = maxValue
             };
         }
     }

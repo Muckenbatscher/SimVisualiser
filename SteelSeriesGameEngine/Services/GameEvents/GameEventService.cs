@@ -19,15 +19,16 @@ namespace SteelSeriesGameEngine.Services.GameEvents
             _endPoint = new GameEventEndpoint(baseAddress.GetURL());
         }
 
-        private GameEventMessage GetPrefilledMessage(int value)
+        private static GameEventMessage GetPrefilledMessage(string eventName, int value)
         {
             return new GameEventMessage()
             {
                 Game = GameMetadata.GAME_NAME,
+                EventName = eventName,
                 Data = GetSampleData(value)
             };
         }
-        private GameEventData GetSampleData(int value)
+        private static GameEventData GetSampleData(int value)
         {
             return new GameEventData()
             {
@@ -37,8 +38,7 @@ namespace SteelSeriesGameEngine.Services.GameEvents
 
         public async Task SendFlagEventAsync(Flag flagType)
         {
-            var message = GetPrefilledMessage((int)flagType);
-            message.EventName = GameEventMetadata.FLAG_EVENT_NAME;
+            var message = GetPrefilledMessage(GameEventMetadata.FLAG_EVENT_NAME, (int)flagType);
 
             await _endPoint.PostMessageAsync(message);
         }

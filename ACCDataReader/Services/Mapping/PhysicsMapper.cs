@@ -13,7 +13,7 @@ namespace ACCDataReading.Services.Mapping
         internal static GameState AddPhysicsInfo(this GameState gameState, Physics? physics)
         {
             if (gameState == null || physics == null)
-                return null;
+                return gameState;
 
             gameState.CurrentRPM = physics.Value.Rpms;
             gameState.TCActive = physics.Value.TC > 0;

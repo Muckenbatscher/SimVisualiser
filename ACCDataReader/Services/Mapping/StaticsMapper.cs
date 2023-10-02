@@ -13,7 +13,7 @@ namespace ACCDataReading.Services.Mapping
         internal static GameState AddStaticsInfo(this GameState gameState, Statics? statics)
         {
             if (gameState == null || statics == null)
-                return null;
+                return gameState;
 
             gameState.MaxRPM = statics.Value.MaxRpm;
             return gameState;
