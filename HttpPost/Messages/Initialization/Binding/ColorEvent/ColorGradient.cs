@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace HttpPost.Messages.Initialization.Binding.ColorEvent
 {
-    public class ColorGradient
+    public class ColorGradient : ColorDefinition
     {
         [JsonPropertyName("zero")]
         public StaticColorDefinition Zero { get; set; }

@@ -4,6 +4,7 @@ using SteelSeriesGameEngine.Constants;
 using SteelSeriesGameEngine.Interfaces;
 using SteelSeriesGameEngine.Models;
 using SteelSeriesGameEngine.Services.SampleMessageGeneration;
+using SteelSeriesGameEngine.Services.SampleMessageGeneration.GameRegistration;
 using System;
 using System.Collections.Generic;
 using System.Linq;

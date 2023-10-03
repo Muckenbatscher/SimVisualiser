@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HttpPost.Messages.Initialization.Binding;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace HttpPost.Messages.Initialization
 {
+    [JsonDerivedType(typeof(BindGameEventMessage))]
     public class GameEventRegistrationMessage : GameSenseMessage
     {
         [JsonPropertyName("event")]

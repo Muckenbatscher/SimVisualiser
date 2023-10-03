@@ -32,7 +32,7 @@ namespace HttpPost.EndPoints
             string serialized = SerializeMessage(message);
             var content = new StringContent(serialized, Encoding.ASCII, "application/json");
 
-            var response =  await _client.PostAsync(uri, content);
+            var response = await _client.PostAsync(uri, content);
             return response.IsSuccessStatusCode;
         }
 

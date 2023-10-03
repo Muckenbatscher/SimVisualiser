@@ -1,4 +1,5 @@
-﻿using HttpPost.Messages.Initialization;
+﻿using HttpPost.Messages.Finalization;
+using HttpPost.Messages.Initialization;
 using SteelSeriesGameEngine.Constants;
 using System;
 using System.Collections.Generic;
@@ -8,16 +9,14 @@ using System.Threading.Tasks;
 
 namespace SteelSeriesGameEngine.Services.SampleMessageGeneration.GameEventRegistration
 {
-    internal class GameEventRegistrationSampleMessageService
+    internal class UnregisterGameEventSampleMessageService
     {
-        protected GameEventRegistrationMessage GetFilledRegistrationMessage(string eventName, int minValue, int maxValue)
+        internal UnregisterGameEventMessage GetFilledUnregistrationMessage(string eventName)
         {
-            return new GameEventRegistrationMessage()
+            return new UnregisterGameEventMessage()
             {
                 Game = GameMetadata.GAME_NAME,
                 EventName = eventName,
-                MinValue = minValue,
-                MaxValue = maxValue
             };
         }
     }

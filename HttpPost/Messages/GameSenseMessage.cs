@@ -2,6 +2,7 @@
 using HttpPost.Messages.GameEvents;
 using HttpPost.Messages.Heartbeat;
 using HttpPost.Messages.Initialization;
+using HttpPost.Messages.Initialization.Binding;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +14,7 @@ namespace HttpPost.Messages
 {
     [JsonDerivedType(typeof(GameRegistrationMessage))]
     [JsonDerivedType(typeof(GameEventRegistrationMessage))]
+    [JsonDerivedType(typeof(BindGameEventMessage))]
     [JsonDerivedType(typeof(UnregisterGameMessage))]
     [JsonDerivedType(typeof(UnregisterGameEventMessage))]
     [JsonDerivedType(typeof(StopGameMessage))]

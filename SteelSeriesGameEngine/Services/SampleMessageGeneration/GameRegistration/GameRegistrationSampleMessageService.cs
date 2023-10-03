@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SteelSeriesGameEngine.Services.SampleMessageGeneration
+namespace SteelSeriesGameEngine.Services.SampleMessageGeneration.GameRegistration
 {
     internal class GameRegistrationSampleMessageService : ISampleMessageGeneration<GameRegistrationMessage>
     {

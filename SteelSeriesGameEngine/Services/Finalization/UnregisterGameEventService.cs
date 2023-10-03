@@ -1,6 +1,7 @@
 ﻿using HttpPost.EndPoints.Finalization;
 using HttpPost.Messages.Finalization;
 using SteelSeriesGameEngine.Models;
+using SteelSeriesGameEngine.Services.SampleMessageGeneration.GameEventRegistration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,20 +14,19 @@ namespace SteelSeriesGameEngine.Services.Finalization
     {
         private readonly UnregisterGameEventEndpoint _endPoint;
 
+        private readonly UnregisterGameEventSampleMessageService _sampleMessageService;
+
         public UnregisterGameEventService(TargetAddress baseAddress) : base(baseAddress)
         {
             _endPoint = new UnregisterGameEventEndpoint(baseAddress.GetURL());
+            _sampleMessageService = new UnregisterGameEventSampleMessageService();
         }
 
 
-        public async Task UnregisterGameEvent(string gameName, string eventName)
+        public async Task UnregisterGameEventAsync(string eventName)
         {
-            var message = new UnregisterGameEventMessage()
-            {
-                Game = gameName,
-                EventName = eventName
-            };
-            var success = await _endPoint.PostMessageAsync(message);
+            var message = _sampleMessageService.GetFilledUnregistrationMessage(eventName);
+            await _endPoint.PostMessageAsync(message);
         }
     }
 }

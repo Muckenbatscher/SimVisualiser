@@ -12,7 +12,5 @@ namespace HttpPost.Messages.Initialization.Binding.ColorEvent
     {
         [JsonPropertyName("color")]
         public ColorDefinition? Color { get; set; }
-        [JsonPropertyName("color")]
-        public RangedColor[]? ColorRanges { get; set; }
     }
 }
