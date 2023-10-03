@@ -10,13 +10,13 @@ namespace SimVisualiser
     public partial class MainWindow : Form
     {
 
-        private readonly ActiveGameRelayingClient _client;
+        private readonly ActiveSimRelayingClient _client;
 
         public MainWindow()
         {
             InitializeComponent();
 
-            _client = new ActiveGameRelayingClient();
+            _client = new ActiveSimRelayingClient();
         }
 
         private async void MainWindow_FormClosed(object sender, FormClosedEventArgs e)

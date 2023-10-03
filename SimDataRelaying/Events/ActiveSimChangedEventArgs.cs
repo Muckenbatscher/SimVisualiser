@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace SimDataReadingCore.Events
 {
-    internal class ActiveGameChangedEventArgs : EventArgs
+    public class ActiveSimChangedEventArgs : EventArgs
     {
         ActiveSimulator ActiveSim { get; set; }
 
-        public ActiveGameChangedEventArgs(ActiveSimulator activeSim)
+        public ActiveSimChangedEventArgs(ActiveSimulator activeSim)
         {
             ActiveSim = activeSim;
         }
