@@ -18,7 +18,7 @@ namespace ACCDataReading.Services.Mapping
                 return gameState;
 
             gameState.IsGameRunning = IsGameRunning(graphics.Value.Status, graphics.Value.Session);
-            gameState.LapTimeDelta = graphics.Value.IDeltaLapTime / 1000D;
+            gameState.LapTimeDelta = TimeSpan.FromMilliseconds(graphics.Value.IDeltaLapTime);
             gameState.Flag = GetCoreFlag(graphics.Value.Flag);
             return gameState;
         }

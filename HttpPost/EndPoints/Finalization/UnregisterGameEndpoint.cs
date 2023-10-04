@@ -1,5 +1,6 @@
 ﻿using HttpPost.Interfaces;
 using HttpPost.Messages.Finalization;
+using HttpPost.Messages.GameEvents;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,6 +19,10 @@ namespace HttpPost.EndPoints.Finalization
         public async Task<bool> PostMessageAsync(UnregisterGameMessage message)
         {
             return await SerializeAndPostMessageAsync(message);
+        }
+        public bool PostMessage(UnregisterGameMessage message)
+        {
+            return SerializeAndPostMessage(message);
         }
     }
 }

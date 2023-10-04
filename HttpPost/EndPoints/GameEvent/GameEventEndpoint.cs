@@ -14,9 +14,15 @@ namespace HttpPost.EndPoints.GameEvent
         {
         }
 
+        
         public async Task<bool> PostMessageAsync(GameEventMessage message)
         {
             return await SerializeAndPostMessageAsync(message);
         }
+        public bool PostMessage(GameEventMessage message)
+        {
+            return SerializeAndPostMessage(message);
+        }
+
     }
 }

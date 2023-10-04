@@ -18,5 +18,10 @@ namespace HttpPost.EndPoints.Initialization
         {
             return await SerializeAndPostMessageAsync(message);
         }
+        public bool PostMessage(GameEventRegistrationMessage message)
+        {
+            return SerializeAndPostMessage(message);
+        }
+
     }
 }

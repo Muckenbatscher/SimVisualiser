@@ -33,5 +33,20 @@ namespace SteelSeriesGameEngine.Services.GameEvent
             await _endPoint.PostMessageAsync(message);
         }
 
+        public async Task SendDeltaEventAsync(TimeSpan deltaTime)
+        {
+            int deltaMilliseconds;
+            if (deltaTime.TotalMilliseconds > 1000)
+                deltaMilliseconds = 2000;
+            else if (deltaTime.TotalMilliseconds < -1000)
+                deltaMilliseconds = 0;
+            else
+                deltaMilliseconds = 1000 - (int)deltaTime.TotalMilliseconds;
+
+            var message = _messageGenerationService.GetFilledEventTriggeringMessage(GameEventMetadata.DELTA_EVENT_NAME, deltaMilliseconds);
+
+            await _endPoint.PostMessageAsync(message);
+        }
+
     }
 }

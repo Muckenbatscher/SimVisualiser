@@ -26,16 +26,38 @@ namespace HttpPost.EndPoints
 
         protected async Task<bool> SerializeAndPostMessageAsync(GameSenseMessage message)
         {
-            string endPointAddress = $"http://{BaseAddress}/{EndPoint}";
-            var uri = new Uri(endPointAddress);
-
-            string serialized = SerializeMessage(message);
-            var content = new StringContent(serialized, Encoding.ASCII, "application/json");
-
-            var response = await _client.PostAsync(uri, content);
+            var httpMessage = GetHttpPostRequestMessage(message);
+            var response = await _client.SendAsync(httpMessage);
+            return response.IsSuccessStatusCode;
+        }
+        protected bool SerializeAndPostMessage(GameSenseMessage message)
+        {
+            var httpMessage = GetHttpPostRequestMessage(message);
+            var response = _client.Send(httpMessage);
             return response.IsSuccessStatusCode;
         }
 
+        private HttpRequestMessage GetHttpPostRequestMessage(GameSenseMessage message)
+        {
+            var uri = GetEndPointUri();
+            var httpMessage = new HttpRequestMessage(HttpMethod.Post, uri)
+            {
+                Content = GetMessageContent(message)
+            };
+            return httpMessage;
+        }
+
+        private Uri GetEndPointUri()
+        {
+            string endPointAddress = $"http://{BaseAddress}/{EndPoint}";
+            return new Uri(endPointAddress);
+        }
+
+        private static StringContent GetMessageContent(GameSenseMessage message)
+        {
+            string serialized = SerializeMessage(message);
+            return new StringContent(serialized, Encoding.ASCII, "application/json");
+        }
         private static string SerializeMessage(GameSenseMessage message)
         {
             JsonSerializerOptions options = new()

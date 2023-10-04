@@ -46,6 +46,7 @@ namespace SteelSeriesGameEngine
         {
             await _gameRegistrationService.RegisterAsync();
             await _bindGameEventService.BindFlagEventAsync();
+            await _bindGameEventService.BindDeltaEventAsync();
         }
 
         private async Task RemoveGameAsync()

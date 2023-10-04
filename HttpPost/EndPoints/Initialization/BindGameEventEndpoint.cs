@@ -20,5 +20,10 @@ namespace HttpPost.EndPoints.Initialization
         {
             return await SerializeAndPostMessageAsync(message);
         }
+        public bool PostMessage(BindGameEventMessage message)
+        {
+            return SerializeAndPostMessage(message);
+        }
+
     }
 }

@@ -29,9 +29,9 @@ namespace SimDataReadingCore.ModelClasses
         public bool TCActive { get; set; }
         public bool ABSActive { get; set; }
 
-        public double LapTimeDelta { get; set; }
+        public TimeSpan LapTimeDelta { get; set; }
 
-        public GameState(bool gameRunning, Flag flag, int currentRPM, int maxRPM, bool tCActive, bool aBSActive, double lapTimeDelta) : this()
+        public GameState(bool gameRunning, Flag flag, int currentRPM, int maxRPM, bool tCActive, bool aBSActive, TimeSpan lapTimeDelta) : this()
         {
             IsGameRunning = gameRunning;
             Flag = flag;
