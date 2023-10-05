@@ -1,5 +1,4 @@
 ﻿using HttpPost.EndPoints.Initialization;
-using HttpPost.Messages.Initialization;
 using HttpPost.Messages.Initialization.Binding;
 using SteelSeriesGameEngine.Interfaces;
 using SteelSeriesGameEngine.Models;
@@ -10,31 +9,28 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SteelSeriesGameEngine.Services.Initialization
+namespace SteelSeriesGameEngine.Services.Initialization.GameEventBinding
 {
-    internal class BindGameEventService : GameSenseServiceBase
+    internal class BindDeltaGameEventService : GameSenseServiceBase, IBindGameEventService
     {
         private readonly BindGameEventEndpoint _endPoint;
 
-
-        private readonly ISampleMessageGeneration<BindGameEventMessage> _flagMessageGeneration;
         private readonly ISampleMessageGeneration<BindGameEventMessage> _deltaMessageGeneration;
 
-        public BindGameEventService(TargetAddress baseAddress) : base(baseAddress)
+        public BindDeltaGameEventService(TargetAddress baseAddress) : base(baseAddress)
         {
             _endPoint = new BindGameEventEndpoint(baseAddress.GetURL());
 
-            _flagMessageGeneration = new FlagEventBindingMessageService();
             _deltaMessageGeneration = new DeltaEventBindingMessageService();
         }
 
-        public async Task BindFlagEventAsync()
+        public void BindEvent()
         {
-            var message = _flagMessageGeneration.GetFilledMessage();
-            await _endPoint.PostMessageAsync(message);
+            var message = _deltaMessageGeneration.GetFilledMessage();
+            _endPoint.PostMessage(message);
         }
 
-        public async Task BindDeltaEventAsync()
+        public async Task BindEventAsync()
         {
             var message = _deltaMessageGeneration.GetFilledMessage();
             await _endPoint.PostMessageAsync(message);

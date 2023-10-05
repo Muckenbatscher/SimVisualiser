@@ -28,5 +28,10 @@ namespace SteelSeriesGameEngine.Services.Finalization
             var message = _sampleMessageService.GetFilledUnregistrationMessage(eventName);
             await _endPoint.PostMessageAsync(message);
         }
+        public void UnregisterGameEvent(string eventName)
+        {
+            var message = _sampleMessageService.GetFilledUnregistrationMessage(eventName);
+            _endPoint.PostMessage(message);
+        }
     }
 }

@@ -37,9 +37,9 @@ namespace SteelSeriesGameEngine.Services.GameEvent
         {
             int deltaMilliseconds;
             if (deltaTime.TotalMilliseconds > 1000)
-                deltaMilliseconds = 2000;
-            else if (deltaTime.TotalMilliseconds < -1000)
                 deltaMilliseconds = 0;
+            else if (deltaTime.TotalMilliseconds < -1000)
+                deltaMilliseconds = 2000;
             else
                 deltaMilliseconds = 1000 - (int)deltaTime.TotalMilliseconds;
 

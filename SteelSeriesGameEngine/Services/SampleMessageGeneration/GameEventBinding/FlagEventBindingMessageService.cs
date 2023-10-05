@@ -65,9 +65,9 @@ namespace SteelSeriesGameEngine.Services.SampleMessageGeneration.GameEventBindin
                 case Flag.YellowFlag:
                     return "#f2ff00";
                 case Flag.BlueFlag:
-                    return "#f2ff00";
-                case Flag.GreenFlag:
                     return "#0010ff";
+                case Flag.GreenFlag:
+                    return "#2ee800";
                 case Flag.WhiteFlag:
                     return "#ffffff";
                 case Flag.CheckeredFlag:

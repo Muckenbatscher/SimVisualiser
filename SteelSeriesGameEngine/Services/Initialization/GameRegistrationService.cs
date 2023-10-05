@@ -24,10 +24,15 @@ namespace SteelSeriesGameEngine.Services.Initialization
             _sampleMessageGeneration = new GameRegistrationSampleMessageService();
         }
 
-        public async Task RegisterAsync()
+        public async Task RegisterGameAsync()
         {
             var message = _sampleMessageGeneration.GetFilledMessage();
             await _endPoint.PostMessageAsync(message);
+        }
+        public void RegisterGame()
+        {
+            var message = _sampleMessageGeneration.GetFilledMessage();
+            _endPoint.PostMessage(message);
         }
     }
 }

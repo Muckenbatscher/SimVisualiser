@@ -13,7 +13,7 @@ namespace SteelSeriesGameEngine.Services.SampleMessageGeneration.GameEventRegist
     {
         public GameEventRegistrationMessage GetFilledMessage()
         {
-            return base.GetFilledRegistrationMessage(GameEventMetadata.FLAG_EVENT_NAME, 0, 7);
+            return base.GetFilledRegistrationMessage(GameEventMetadata.FLAG_EVENT_NAME, 0, 100);
         }
     }
 }

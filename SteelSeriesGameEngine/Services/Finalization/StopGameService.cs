@@ -1,9 +1,8 @@
 ﻿using HttpPost.EndPoints.Finalization;
 using HttpPost.Messages.Finalization;
-using SteelSeriesGameEngine.Constants;
 using SteelSeriesGameEngine.Interfaces;
 using SteelSeriesGameEngine.Models;
-using SteelSeriesGameEngine.Services.SampleMessageGeneration;
+using SteelSeriesGameEngine.Services.SampleMessageGeneration.StopGame;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,10 +23,15 @@ namespace SteelSeriesGameEngine.Services.Finalization
             _sampleMessageGeneration = new StopGameSampleMessageService();
         }
 
-        public async Task StopGame()
+        public async Task StopGameAsync()
         {
             var message = _sampleMessageGeneration.GetFilledMessage();
             await _endPoint.PostMessageAsync(message);
+        }
+        public void StopGame()
+        {
+            var message = _sampleMessageGeneration.GetFilledMessage();
+            _endPoint.PostMessage(message);
         }
     }
 }

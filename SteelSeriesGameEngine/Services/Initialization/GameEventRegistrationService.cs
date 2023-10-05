@@ -29,5 +29,10 @@ namespace SteelSeriesGameEngine.Services.Initialization
             var message = _flagMessageGeneration.GetFilledMessage();
             await _endPoint.PostMessageAsync(message);
         }
+        public void RegisterFlagEvent()
+        {
+            var message = _flagMessageGeneration.GetFilledMessage();
+            _endPoint.PostMessage(message);
+        }
     }
 }

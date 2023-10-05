@@ -12,14 +12,32 @@ namespace SteelSeriesGameEngine.Services.SampleMessageGeneration.GameEventBindin
     {
         public IEnumerable<DeviceZonePermutation> GetAllSupportedPermutations()
         {
+            var generic = GetSupportedGenericPermutations();
             var mouse = GetSupportedMousePermutations();
             var keyboard = GetSupportedKeyboardPermutations();
             var headset = GetSupportedHeadsetPermutations();
 
-            var combined = new List<IEnumerable<DeviceZonePermutation>>() { mouse, keyboard, headset };
+            var combined = new List<IEnumerable<DeviceZonePermutation>>() { generic };
             return combined.SelectMany(x => x);
         }
 
+        public IEnumerable<DeviceZonePermutation> GetSupportedGenericPermutations()
+        {
+            return new List<DeviceZonePermutation>
+            {
+                new DeviceZonePermutation(DeviceType.GenericOneZone, GenericIlluminationZone.One),
+                new DeviceZonePermutation(DeviceType.GenericTwoZone, GenericIlluminationZone.One),
+                new DeviceZonePermutation(DeviceType.GenericTwoZone, GenericIlluminationZone.Two),
+                new DeviceZonePermutation(DeviceType.GenericThreeZone, GenericIlluminationZone.One),
+                new DeviceZonePermutation(DeviceType.GenericThreeZone, GenericIlluminationZone.Two),
+                new DeviceZonePermutation(DeviceType.GenericThreeZone, GenericIlluminationZone.Three),
+                new DeviceZonePermutation(DeviceType.GenericFiveZone, GenericIlluminationZone.One),
+                new DeviceZonePermutation(DeviceType.GenericFiveZone, GenericIlluminationZone.Two),
+                new DeviceZonePermutation(DeviceType.GenericFiveZone, GenericIlluminationZone.Three),
+                new DeviceZonePermutation(DeviceType.GenericFiveZone, GenericIlluminationZone.Four),
+                new DeviceZonePermutation(DeviceType.GenericFiveZone, GenericIlluminationZone.Five)
+            };
+        }
         public IEnumerable<DeviceZonePermutation> GetSupportedMousePermutations()
         {
             return new List<DeviceZonePermutation>

@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SteelSeriesGameEngine.Services.SampleMessageGeneration
+namespace SteelSeriesGameEngine.Services.SampleMessageGeneration.StopGame
 {
     internal class StopGameSampleMessageService : ISampleMessageGeneration<StopGameMessage>
     {

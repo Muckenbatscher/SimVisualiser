@@ -3,6 +3,7 @@ using SteelSeriesGameEngine.Models;
 using SteelSeriesGameEngine.Services.Finalization;
 using SteelSeriesGameEngine.Services.GameEvent;
 using SteelSeriesGameEngine.Services.Initialization;
+using SteelSeriesGameEngine.Services.Initialization.GameEventBinding;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,6 +21,7 @@ namespace SteelSeriesGameEngine
         private readonly UnregisterGameEventService _gameEventUnregisteringService;
 
         private readonly GameRegistrationService _gameRegistrationService;
+        private readonly GameEventRegistrationService _gameEventRegistrationService;
         private readonly BindGameEventService _bindGameEventService;
         private readonly StopGameService _stopGameService;
 
@@ -33,36 +35,41 @@ namespace SteelSeriesGameEngine
             _gameEventUnregisteringService = new UnregisterGameEventService(_targetAddress);
 
             _gameRegistrationService = new GameRegistrationService(_targetAddress);
+            _gameEventRegistrationService = new GameEventRegistrationService(_targetAddress);
             _bindGameEventService = new BindGameEventService(_targetAddress);
             _stopGameService = new StopGameService(_targetAddress);
 
             _gameEventService = new GameEventTriggerService(_targetAddress);
 
-            RemoveGameAsync();
-            SetUpGameEngineAsync();
+            RemoveGame();
+            SetUpGameEngine();
         }
 
-        private async Task SetUpGameEngineAsync()
+        private void SetUpGameEngine()
         {
-            await _gameRegistrationService.RegisterAsync();
-            await _bindGameEventService.BindFlagEventAsync();
-            await _bindGameEventService.BindDeltaEventAsync();
+            _gameRegistrationService.RegisterGame();
+            _bindGameEventService.BindAllEvents();
         }
 
-        private async Task RemoveGameAsync()
+        private void RemoveGame()
         {
-            await _gameEventUnregisteringService.UnregisterGameEventAsync(Constants.GameEventMetadata.FLAG_EVENT_NAME);
-            await _gameUnregisteringService.UnregisterGameAsync();
+            _gameEventUnregisteringService.UnregisterGameEvent(Constants.GameEventMetadata.FLAG_EVENT_NAME);
+            _gameEventUnregisteringService.UnregisterGameEvent(Constants.GameEventMetadata.DELTA_EVENT_NAME);
+            _gameUnregisteringService.UnregisterGame();
         }
 
         public async Task StopGame()
         {
-            await _stopGameService.StopGame();
+            await _stopGameService.StopGameAsync();
         }
 
         public async Task SendFlagEventAsync(Flag flag)
         {
             await _gameEventService.SendFlagEventAsync(flag);
+        }
+        public async Task SendDeltaEventAsync(TimeSpan delta)
+        {
+            await _gameEventService.SendDeltaEventAsync(delta);
         }
 
     }

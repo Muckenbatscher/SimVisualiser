@@ -55,6 +55,7 @@ namespace SimDataReadingCore.ActiveGameData
                 return;
 
             await _client.SendFlagEventAsync(_latestGameState.Flag);
+            await _client.SendDeltaEventAsync(_latestGameState.LapTimeDelta);
         }
 
         private void SetNoneIfNotRunning(ActiveSimulator simToSet, bool running)

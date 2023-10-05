@@ -26,7 +26,7 @@ namespace SteelSeriesGameEngine.Services.SampleMessageGeneration.GameEventBindin
             var message = new BindGameEventMessage()
             {
                 Game = GameMetadata.GAME_NAME,
-                EventName = GameEventMetadata.FLAG_EVENT_NAME,
+                EventName = GameEventMetadata.DELTA_EVENT_NAME,
                 MinValue = 0,
                 MaxValue = 2000
             };
@@ -42,9 +42,12 @@ namespace SteelSeriesGameEngine.Services.SampleMessageGeneration.GameEventBindin
             var offMiddle = GetSingleColorDefinition("#000000", 1000, 1000);
             var maxNegative = GetSingleColorDefinition("#00ff00", 2000, 2000);
 
-            var fadePositive = GetGradiendColorDefinition("#d11b1b", "#4d0c0c", 1, 999);
-            var fadeNegative = GetGradiendColorDefinition("#0c4d1a", "#19bf3d", 1001, 1999);
-            
+            //var fadePositive = GetGradiendColorDefinition("#d11b1b", "#4d0c0c", 1, 999);
+            //var fadeNegative = GetGradiendColorDefinition("#0c4d1a", "#19bf3d", 1001, 1999);
+
+            var fadePositive = GetSingleColorDefinition("#d11b1b", 1, 999);
+            var fadeNegative = GetSingleColorDefinition("#0c4d1a", 1001, 1999);
+
             return new List<RangedColor>() { maxPositive, fadePositive, offMiddle, fadeNegative, maxNegative};
         }
 
