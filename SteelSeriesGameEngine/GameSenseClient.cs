@@ -21,7 +21,6 @@ namespace SteelSeriesGameEngine
         private readonly UnregisterGameEventService _gameEventUnregisteringService;
 
         private readonly GameRegistrationService _gameRegistrationService;
-        private readonly GameEventRegistrationService _gameEventRegistrationService;
         private readonly BindGameEventService _bindGameEventService;
         private readonly StopGameService _stopGameService;
 
@@ -36,7 +35,6 @@ namespace SteelSeriesGameEngine
             _gameEventUnregisteringService = new UnregisterGameEventService(_targetAddress);
 
             _gameRegistrationService = new GameRegistrationService(_targetAddress);
-            _gameEventRegistrationService = new GameEventRegistrationService(_targetAddress);
             _bindGameEventService = new BindGameEventService(_targetAddress);
             _stopGameService = new StopGameService(_targetAddress);
 
