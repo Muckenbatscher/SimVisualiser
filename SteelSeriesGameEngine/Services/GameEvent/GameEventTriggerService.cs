@@ -12,40 +12,36 @@ using System.Threading.Tasks;
 
 namespace SteelSeriesGameEngine.Services.GameEvent
 {
-    internal class GameEventTriggerService : GameSenseServiceBase
+    internal abstract class GameEventTriggerService : GameSenseServiceBase
     {
         private readonly GameEventEndpoint _endPoint;
 
         private readonly GameEventTriggerSampleMessageService _messageGenerationService;
 
-        public GameEventTriggerService(TargetAddress baseAddress) : base(baseAddress)
+        private string GameEventName { get; set; }
+
+        public GameEventTriggerService(TargetAddress baseAddress, string eventName) : base(baseAddress)
         {
             _endPoint = new GameEventEndpoint(baseAddress.GetURL());
             _messageGenerationService = new GameEventTriggerSampleMessageService();
+
+            GameEventName = eventName;
         }
 
-
-
-        public async Task SendFlagEventAsync(Flag flagType)
+        public async Task SendEventAsync(int value)
         {
-            var message = _messageGenerationService.GetFilledEventTriggeringMessage(GameEventMetadata.FLAG_EVENT_NAME, (int)flagType);
-
+            var message = GetFilledEventMessage(value);
             await _endPoint.PostMessageAsync(message);
         }
-
-        public async Task SendDeltaEventAsync(TimeSpan deltaTime)
+        public void SendEvent(int value)
         {
-            int deltaMilliseconds;
-            if (deltaTime.TotalMilliseconds > 1000)
-                deltaMilliseconds = 0;
-            else if (deltaTime.TotalMilliseconds < -1000)
-                deltaMilliseconds = 2000;
-            else
-                deltaMilliseconds = 1000 - (int)deltaTime.TotalMilliseconds;
+            var message = GetFilledEventMessage(value);
+            _endPoint.PostMessage(message);
+        }
 
-            var message = _messageGenerationService.GetFilledEventTriggeringMessage(GameEventMetadata.DELTA_EVENT_NAME, deltaMilliseconds);
-
-            await _endPoint.PostMessageAsync(message);
+        private GameEventMessage GetFilledEventMessage(int value)
+        {
+            return _messageGenerationService.GetFilledEventTriggeringMessage(GameEventName, value);
         }
 
     }

@@ -25,7 +25,8 @@ namespace SteelSeriesGameEngine
         private readonly BindGameEventService _bindGameEventService;
         private readonly StopGameService _stopGameService;
 
-        private readonly GameEventTriggerService _gameEventService;
+        private readonly FlagEventTriggerService _flagEventService;
+        private readonly DeltaEventTriggerService _deltaEventService;
 
         public GameSenseClient()
         {
@@ -39,7 +40,8 @@ namespace SteelSeriesGameEngine
             _bindGameEventService = new BindGameEventService(_targetAddress);
             _stopGameService = new StopGameService(_targetAddress);
 
-            _gameEventService = new GameEventTriggerService(_targetAddress);
+            _flagEventService = new FlagEventTriggerService(_targetAddress);
+            _deltaEventService = new DeltaEventTriggerService(_targetAddress);
 
             RemoveGame();
             SetUpGameEngine();
@@ -65,11 +67,11 @@ namespace SteelSeriesGameEngine
 
         public async Task SendFlagEventAsync(Flag flag)
         {
-            await _gameEventService.SendFlagEventAsync(flag);
+            await _flagEventService.TriggerGameEventValueAsync(flag);
         }
         public async Task SendDeltaEventAsync(TimeSpan delta)
         {
-            await _gameEventService.SendDeltaEventAsync(delta);
+            await _deltaEventService.TriggerGameEventValueAsync(delta);
         }
 
     }
