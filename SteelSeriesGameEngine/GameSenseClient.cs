@@ -21,12 +21,13 @@ namespace SteelSeriesGameEngine
         private readonly UnregisterGameEventService _gameEventUnregisteringService;
 
         private readonly GameRegistrationService _gameRegistrationService;
-        private readonly GameEventRegistrationService _gameEventRegistrationService;
         private readonly BindGameEventService _bindGameEventService;
         private readonly StopGameService _stopGameService;
 
         private readonly FlagEventTriggerService _flagEventService;
         private readonly DeltaEventTriggerService _deltaEventService;
+        private readonly TCEventTiggerService _tcEventService;
+        private readonly ABSEventTriggerService _absEventService;
 
         public GameSenseClient()
         {
@@ -36,12 +37,13 @@ namespace SteelSeriesGameEngine
             _gameEventUnregisteringService = new UnregisterGameEventService(_targetAddress);
 
             _gameRegistrationService = new GameRegistrationService(_targetAddress);
-            _gameEventRegistrationService = new GameEventRegistrationService(_targetAddress);
             _bindGameEventService = new BindGameEventService(_targetAddress);
             _stopGameService = new StopGameService(_targetAddress);
 
             _flagEventService = new FlagEventTriggerService(_targetAddress);
             _deltaEventService = new DeltaEventTriggerService(_targetAddress);
+            _tcEventService = new TCEventTiggerService(_targetAddress);
+            _absEventService = new ABSEventTriggerService(_targetAddress);
 
             RemoveGame();
             SetUpGameEngine();
@@ -72,6 +74,14 @@ namespace SteelSeriesGameEngine
         public async Task SendDeltaEventAsync(TimeSpan delta)
         {
             await _deltaEventService.TriggerGameEventValueAsync(delta);
+        }
+        public async Task SendTCEventAsync(bool tcActive)
+        {
+            await _tcEventService.TriggerGameEventValueAsync(tcActive);
+        }
+        public async Task SendABSEventAsync(bool absActive)
+        {
+            await _absEventService.TriggerGameEventValueAsync(absActive);
         }
 
     }

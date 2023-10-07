@@ -23,9 +23,9 @@ namespace SteelSeriesGameEngine.Services.GameEvent
             SendEvent(deltaValue);
         }
 
-        public async Task TriggerGameEventValueAsync(TimeSpan value)
+        public async Task TriggerGameEventValueAsync(TimeSpan deltaTime)
         {
-            int deltaValue = GetValueForTimespan(value);
+            int deltaValue = GetValueForTimespan(deltaTime);
             await SendEventAsync((int)deltaValue);
         }
 

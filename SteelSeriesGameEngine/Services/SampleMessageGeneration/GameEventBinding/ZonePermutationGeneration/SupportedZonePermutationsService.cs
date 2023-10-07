@@ -21,7 +21,7 @@ namespace SteelSeriesGameEngine.Services.SampleMessageGeneration.GameEventBindin
             return combined.SelectMany(x => x);
         }
 
-        public IEnumerable<DeviceZonePermutation> GetSupportedGenericPermutations()
+        public static IEnumerable<DeviceZonePermutation> GetSupportedGenericPermutations()
         {
             return new List<DeviceZonePermutation>
             {
@@ -38,7 +38,7 @@ namespace SteelSeriesGameEngine.Services.SampleMessageGeneration.GameEventBindin
                 new DeviceZonePermutation(DeviceType.GenericFiveZone, GenericIlluminationZone.Five)
             };
         }
-        public IEnumerable<DeviceZonePermutation> GetSupportedMousePermutations()
+        public static IEnumerable<DeviceZonePermutation> GetSupportedMousePermutations()
         {
             return new List<DeviceZonePermutation>
             {
@@ -47,7 +47,7 @@ namespace SteelSeriesGameEngine.Services.SampleMessageGeneration.GameEventBindin
                 new DeviceZonePermutation(DeviceType.Mouse, MouseIlluminationZone.Wheel)
             };
         }
-        public IEnumerable<DeviceZonePermutation> GetSupportedKeyboardPermutations()
+        public static IEnumerable<DeviceZonePermutation> GetSupportedKeyboardPermutations()
         {
             return new List<DeviceZonePermutation>
             {
@@ -58,7 +58,7 @@ namespace SteelSeriesGameEngine.Services.SampleMessageGeneration.GameEventBindin
                 new DeviceZonePermutation(DeviceType.Keyboard, KeyBoardIlluminationZone.MacroKeys),
             };
         }
-        public IEnumerable<DeviceZonePermutation> GetSupportedHeadsetPermutations()
+        public static IEnumerable<DeviceZonePermutation> GetSupportedHeadsetPermutations()
         {
             return new List<DeviceZonePermutation>
             {

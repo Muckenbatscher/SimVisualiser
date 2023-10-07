@@ -17,14 +17,21 @@ namespace SteelSeriesGameEngine.Services.GameEvent
         {
         }
 
-        public void TriggerGameEventValue(Flag value)
+        public void TriggerGameEventValue(Flag flag)
         {
-            SendEvent((int)value);
+            int flagValue = GetValueForFlag(flag);
+            SendEvent(flagValue);
         }
 
-        public async Task TriggerGameEventValueAsync(Flag value)
+        public async Task TriggerGameEventValueAsync(Flag flag)
         {
-            await SendEventAsync((int)value);
+            int flagValue = GetValueForFlag(flag);
+            await SendEventAsync(flagValue);
+        }
+
+        private static int GetValueForFlag(Flag flag)
+        {
+            return (int)flag;
         }
     }
 }
